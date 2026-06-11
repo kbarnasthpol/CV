@@ -1,26 +1,301 @@
+/* src/app/globals.css */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* -------------------------------------------------------------------------
+   TEMA PERSONALIZADO (colores y sombras)
+   ------------------------------------------------------------------------- */
+@theme {
+  --color-diferencias: #9fe870;
+  --color-secundario: #163300;
+  --color-fondo: #F8FFF3;
+  --color-contraste: #212738;
+  --color-texto-para-contraste:#F8FFF3;
+  --color-texto-para-fondo: #212738;
+  --color-fondo-seccion: var(--color-fondo);
+  --color-primario:#508484;
+  --color-dejarWEB: #E63946;
+
+  /* Sombra tipo pixel */
+  --shadow-pixel: 8px 8px 0px var(--color-secundario);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* -------------------------------------------------------------------------
+   DARK MODE: usando la clase .dark en el HTML
+   ------------------------------------------------------------------------- */
+@custom-variant dark (&:where(.dark, .dark *));
+
+.dark {
+  --color-primario: #163300;
+  --color-contraste: #F8FFF3;
+  --color-fondo: #212738;
+  --color-texto-para-fondo:#F8FFF3;
+  --color-texto-para-contraste: #212738;
+  --color-fondo-seccion: var(--color-fondo);
+  --color-secundario:#9fe870;
+ --color-diferencias: #508484;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* -------------------------------------------------------------------------
+   ESTILOS BASE (equivalente a @layer base)
+   ------------------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-fondo);
+    color: var(--color-para-fondo);
+    font-family: var(--font-geist-sans), sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
   }
 }
 
+/* -------------------------------------------------------------------------
+   COMPONENTES REUTILIZABLES (efectos que no existen en utilidades)
+   ------------------------------------------------------------------------- */
+@layer components {
+  /* Contenedor clásico */
+  .container-custom {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Título de sección con línea decorativa */
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    color: var(--color-texto);
+  }
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-secundario);
+    border-radius: 2px;
+  }
+
+
+  .dark header {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Navegación - efecto underline */
+  .nav-links a {
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-secundario);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover::after,
+  .nav-links a.nav-active::after {
+    width: 100%;
+  }
+  .nav-links a.nav-active {
+    color: var(--color-secundario);
+  }
+
+  /* Switch de tema (toggle) */
+  .cambio-tema {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+  }
+  .cambio-tema input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .deslizamiento {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-secundario);
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  .deslizamiento:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--color-primario);
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  input:checked + .deslizamiento {
+    background-color: var(--color-secundario);
+  }
+  input:checked + .deslizamiento:before {
+    transform: translateX(26px);
+  }
+
+  /* Frame pixel art */
+  .pixelart-frame {
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 1 / 1;
+    border: 8px solid var(--color-primario);
+    border-radius: 4px;
+    padding: 10px;
+    background-color: var(--color-fondo);
+    box-shadow: 8px 8px 0 var(--color-secundario);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  .pixelart-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering:smooth;
+  }
+
+  /* Imagen claro/oscuro para logo */
+  .img-light {
+    display: block;
+  }
+  .img-dark {
+    display: none;
+  }
+  .dark .img-light {
+    display: none;
+  }
+  .dark .img-dark {
+    display: block;
+  }
+
+  /* Efecto hover en tarjetas de proyectos (imagen B/N a color + zoom) */
+  .project-image-wrapper {
+    overflow: hidden;
+    position: relative;
+  }
+  .project-image {
+    transition: filter 0.4s ease, transform 0.4s ease;
+    filter: grayscale(100%);
+  }
+  .project-card:hover .project-image {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+
+  /* Estilos para badges de tags */
+  .tag-badge {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--color-secundario);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .dark .tag-badge {
+    background-color: rgba(44, 135, 197, 0.2);
+  }
+
+  /* Botón de CV y otros */
+  .btn-cv {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    background-color: var(--color-secundario);
+    color: white;
+    border-radius: 0.5rem;
+    transition: opacity 0.2s;
+  }
+  .btn-cv:hover {
+    opacity: 0.9;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   UTILIDADES ADICIONALES
+   ------------------------------------------------------------------------- */
+@layer utilities {
+  .logo-container {
+    display: inline-block;
+    height: 50px;
+    vertical-align: middle;
+  }
+  .logo-img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Scroll Snap por secciones (Desktop) */
+@media (min-width: 768px) {
+  html, body {
+    overflow: hidden;
+  }
+
+  .snap-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .snap-section {
+    height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+  }
+}
+
+/* Móvil */
+@media (max-width: 767px) {
+  .snap-container {
+    overflow-y: auto;
+  }
+  .snap-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+}
+/* Ocultar barra de scroll para Chrome, Safari y Opera */
+.snap-container::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ocultar barra de scroll para IE, Edge y Firefox */
+.snap-container,
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -ms-overflow-style: none;  /* IE y Edge */
+  scrollbar-width: none;  /* Firefox */
 }
