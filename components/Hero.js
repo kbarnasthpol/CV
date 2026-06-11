@@ -8,16 +8,19 @@ export default function Hero() {
   useEffect(() => {
     const typed = new Typed(elEscritura.current, {
       strings: [
-        'KEVIN BARNASTHPOL.', 
-        'PROGRAMADOR FRONTEND.', 
-        'ESTUDIANTE TECNOLÓGICO.', 
-        'ENTUSIASTA DEL CÓDIGO.'
+        'KEVIN BARNASTHPOL', 
+        'PROGRAMADOR FRONTEND', 
+        'ESTUDIANTE TECNOLÓGICO', 
+        'ENTUSIASTA DEL CÓDIGO'
       ],
       typeSpeed: 80,
       backSpeed: 40,
       backDelay: 1800,
       loop: true,
       contentType: 'html',
+      cursorChar: '|',
+      showCursor: false,
+
     });
 
     return () => {
@@ -30,20 +33,45 @@ export default function Hero() {
       id="inicio" 
       className="relative min-h-screen flex flex-col items-center justify-center bg-fondo text-texto-para-fondo transition-colors duration-300 px-6 overflow-hidden"
     >
-      {/* Elemento estético de fondo (Gradiente suave opcional para darle un toque premium) */}
+      {/* Elemento estético de fondo */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primario-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto max-w-4xl text-center z-10 flex flex-col items-center justify-center">
-        {/* TÍTULO PRINCIPAL */}
-        <h1 className="text-4xl text-texto-para-fondo sm:text-5xl md:text-6xl font-extrabold tracking-tight min-h-[96px] sm:min-h-[60px] md:min-h-[72px] flex items-center justify-center flex-wrap gap-x-3">
-          HOLA, SOY 
-          <span 
-            ref={elEscritura} 
-            className="text-diferencias border-r-2 border-principal whitespace-nowrap"
-          ></span>
-        </h1>
+        
+        <div className="w-full max-w-4xl mx-auto">
+  <div className="
+    grid 
+    grid-cols-1 
+    sm:grid-cols-[auto_1fr] 
+    gap-x-3 
+    text-4xl sm:text-5xl md:text-6xl 
+    font-extrabold tracking-tight
+    text-center sm:text-left
+  ">
+    
+    {/* Columna 1 */}
+    <span className="text-3xl whitespace-nowrap">
+      HOLA, SOY
+    </span>
 
-        {/* SUBTÍTULO / DESCRIPCIÓN */}
+    {/* Columna 2 */}
+   <span 
+  ref={elEscritura} 
+  className="
+    text-diferencias 
+    break-words
+    inline
+    min-h-[0.5m] 
+    sm:min-h-[2.4em]
+    md:min-h-[2.4em]
+    typed-text
+  "
+></span>
+
+  </div>
+</div>
+
+        {/* SUBTÍTULO / DESCRIPCIÓN - ESTABLE */}
         <p className="mt-6 text-base sm:text-lg md:text-xl text-texto-para-fondo max-w-2xl leading-relaxed">
           Desarrollador Frontend enfocado en crear soluciones web limpias, modernas y eficientes.
         </p>
