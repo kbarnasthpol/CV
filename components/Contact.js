@@ -64,6 +64,17 @@ export default function Contact() {
             </a>
           ))}
         </div>
+         {/* ACCIONES / DESCARGAR CV */}
+        <div className="mt-14 flex justify-center">
+          <a 
+            href="/cv-kevin.pdf" 
+            download="CV_Kevin_Barnasthpol.pdf" 
+            className="px-8 h-12 flex items-center justify-center gap-2 text-sm font-semibold tracking-wider bg-contraste hover:bg-diferencias text-texto-para-contraste hover:text-texto-para-contraste dark:hover:text-texto-para-fondo rounded-lg shadow-md transition-all duration-300"
+          >
+            <i className="fas fa-book"></i>
+            DESCARGAR MI CV
+          </a>
+        </div>
       </div>
       
       <Footer />

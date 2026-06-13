@@ -8,10 +8,6 @@ export default function About() {
     >
       <div className="container mx-auto max-w-5xl px-6">
         {/* TÍTULO DE SECCIÓN */}
-        <h2 className="text-3xl md:text-4xl font-black tracking-tight text-center mb-12 relative inline-block left-1/2 -translate-x-1/2 after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-1/1 after:h-1 after:bg-diferencias">
-          SOBRE MÍ
-        </h2>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-6">
           
           {/* CONTENEDOR DE LA ILUSTRACIÓN REACTIVA */}
@@ -38,29 +34,33 @@ export default function About() {
           </div>
 
           {/* TEXTO INFORMATIVO */}
-          <div className="flex flex-col space-y-4 text-center md:text-left">
-            <h3 className="text-xl md:text-2xl font-bold text-primario dark:text-secundario">
+          <div className="flex flex-col space-y-4 text-center">
+            <h3 className="text-xl md:text-3xl font-bold text-primario dark:text-secundario item-center">
               ¿Quién soy?
             </h3>
-            <p className="text-contraste leading-relaxed text-sm sm:text-base">
+            <p className="text-contraste text-justify leading-relaxed text-sm sm:text-base">
               Soy un desarrollador Frontend Junior apasionado por la tecnología y la creación de interfaces web modernas, intuitivas y eficientes. Actualmente combino mis estudios tecnológicos con el aprendizaje constante de herramientas del ecosistema de JavaScript y React.
             </p>
-            <p className="text-contraste leading-relaxed text-sm sm:text-base">
+            <p className="text-contraste text-justify leading-relaxed text-sm sm:text-base">
               Mi enfoque está puesto en escribir código limpio, modular y escalable, siempre buscando optimizar la experiencia del usuario final. Disfruto enfrentando nuevos desafíos que me permitan expandir mis conocimientos y aportar valor real en proyectos digitales.
             </p>
+            {/* BOTONES / CTA */}
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+          <a 
+            href="#proyectos" 
+            className="w-full sm:w-auto px-8 h-12 flex items-center justify-center text-sm font-semibold tracking-wider bg-contraste hover:bg-diferencias dark:hover:text-contraste text-fondo rounded-lg shadow-lg shadow-principal-500/20 dark:shadow-none transition-all duration-300"
+          >
+            MIS PROYECTOS
+          </a>
+          <a 
+            href="#contacto" 
+            className="w-full sm:w-auto px-8 h-12 flex items-center justify-center text-sm font-semibold tracking-wider bg-contraste hover:bg-diferencias dark:hover:text-contraste text-fondo rounded-lg shadow-lg shadow-principal-500/20 dark:shadow-none transition-all duration-300"
+          >
+            CONTACTARME
+          </a>
+        </div>
           </div>
 
-        </div>
-
-        {/* ACCIONES / DESCARGAR CV */}
-        <div className="mt-14 flex justify-center">
-          <a 
-            href="/cv-kevin.pdf" 
-            download="CV_Kevin_Barnasthpol.pdf" 
-            className="px-8 h-12 flex items-center justify-center text-sm font-semibold tracking-wider bg-contraste hover:bg-diferencias text-texto-para-contraste hover:text-texto-para-contraste dark:hover:text-texto-para-fondo rounded-lg shadow-md transition-all duration-300"
-          >
-            DESCARGAR MI CV
-          </a>
         </div>
 
       </div>

@@ -300,6 +300,7 @@ body {
   scrollbar-width: none;  /* Firefox */
 }
 .typed-text::after {
+  size:1xl;
   content: '_';
   margin-left: 2px;
   display: inline;
