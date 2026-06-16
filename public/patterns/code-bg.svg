@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+  <style>
+    text {
+      fill: currentColor;
+      font-size: 10px;
+      font-family: monospace;
+      opacity: 1;
+    }
+  </style>
+
+   <text x="10" y="30">const hero = () =&gt; {'{'}</text>
+  <text x="10" y="50">  return (</text>
+  <text x="10" y="70">    &lt;section className="hero"&gt;</text>
+  <text x="10" y="90">      &lt;h1&gt;Hello World&lt;/h1&gt;</text>
+  <text x="10" y="110">    &lt;/section&gt;</text>
+  <text x="10" y="130">  );</text>
+  <text x="10" y="150">{'}'}</text>
+  <text x="10" y="200">function animate() {'{'}</text>
+  <text x="10" y="220">  requestAnimationFrame(animate);</text>
+  <text x="10" y="240">{'}'}</text>
+  <text x="10" y="300">let code = "clean &amp; scalable";</text>
+</svg>

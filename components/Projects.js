@@ -50,11 +50,12 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className="flex gap-4 mt-auto">
+        <div className="flex gap-10 items-center justify-center">
           <a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
+            w-auto
             className="bg-contraste hover:bg-dejarWEB border-2 border-fondo dark:border-contraste dark:text-contraste dark:bg-fondo text-fondo px-4 py-2 rounded-lg transition-colors inline-flex items-center gap-2 text-sm font-medium"
           >
             Ver Sitio <i className="fas fa-external-link-alt text-xs"></i>

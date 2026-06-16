@@ -9,9 +9,9 @@ export default function Hero() {
   useEffect(() => {
     const typed = new Typed(elEscritura.current, {
       strings: [
-        "Desarrollador Frontend.<br><span class='text-secundario text-3xl sm:text-4xl md:text-5xl dark:text-diferencias font-semibold'>Creando soluciones web limpias.</span>",
-        "Estudiante Tecnológico.<br><span class='text-secundario text-3xl sm:text-4xl md:text-5xl dark:text-diferencias font-semibold'>Apasionado por interfaces modernas.</span>",
-        "Entusiasta del Código.<br><span class='text-secundario text-3xl sm:text-4xl md:text-5xl  dark:text-diferencias font-semibold'>Escribiendo código escalable y eficiente.</span>"
+        "Desarrollador Frontend.<br><span class='text-secundario text-3xl sm:text-4xl md:text-5xl dark:text-texto-para-contraste font-semibold'>Creando soluciones web limpias.</span>",
+        "Estudiante Tecnológico.<br><span class='text-secundario text-3xl sm:text-4xl md:text-5xl dark:text-texto-para-contraste font-semibold'>Apasionado por interfaces modernas.</span>",
+        "Entusiasta del Código.<br><span class='text-secundario text-3xl sm:text-4xl md:text-5xl  dark:text-texto-para-contraste font-semibold'>Escribiendo código escalable y eficiente.</span>"
       ],
       typeSpeed: 70,
       backSpeed: 20,
@@ -57,17 +57,80 @@ export default function Hero() {
   }, []);
 
   return (
-    <section 
+    <section
       ref={heroRef} // Corregido: Enlazamos la referencia aquí para que el Observer funcione
-      id="inicio" 
+      id="inicio"
       className="relative min-h-screen flex flex-col items-center justify-center bg-fondo text-texto-para-fondo transition-colors duration-300 px-6 overflow-hidden"
     >
+        {/* Fondo con símbolos tipo código */}
+{/* Fondo con símbolos tipo código */}
+<div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-40 blur-[2px]">
+  <svg
+    className="absolute w-full h-full animate-code-float text-primario dark:text-secundario"
+    viewBox="0 0 1000 1000"
+    preserveAspectRatio="xMidYMid slice"
+    style={{
+      WebkitMaskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
+      maskImage: "linear-gradient(to bottom, black 70%, transparent 95%)",
+    }}
+  >
+    <defs>
+      <pattern
+        id="codePattern"
+        width="1000"
+        height="225"
+        patternUnits="userSpaceOnUse"
+      >
+        <g
+          fill="currentColor"
+          fontSize="15"
+          fontFamily="monospace"
+          letterSpacing="-1"
+        >
+          <text x="0" y="25" textLength="1000">
+            const app = () =&gt; &#123; return &lt;Hero /&gt; &#125;; function fetchData() &#123; return fetch('/api') &#125;;
+          </text>
+          <text x="0" y="50" textLength="1000">
+            useEffect(() =&gt; &#123; load() &#125;, []); if (loading) return &lt;Spinner /&gt;;
+          </text>
+          <text x="0" y="75" textLength="1000">
+            const debounce = (fn) =&gt; &#123;&#125;; requestAnimationFrame(loop);
+          </text>
+          <text x="0" y="100" textLength="1000">
+            const user = &#123; name: "Kevin", role: "Frontend Dev" &#125;;
+          </text>
+          <text x="0" y="125" textLength="1000">
+            map(data =&gt; data.map(x =&gt; x.id)); async function getUsers() &#123;&#125;;
+          </text>
+          <text x="0" y="150" textLength="1000">
+            function render() &#123; return &lt;Component /&gt; &#125;;
+          </text>
+          <text x="0" y="175" textLength="1000">
+            localStorage.setItem('key', value); Promise.resolve();
+          </text>
+          <text x="0" y="200" textLength="1000">
+            const ctx = createContext(); useContext(ctx);
+          </text>
+          <text x="0" y="225" textLength="1000">
+            let theme = dark ? 'dark' : 'light'; fetch('/api/data');
+          </text>
+        </g>
+      </pattern>
+    </defs>
+
+    {/* Pintamos el patrón original */}
+    <rect width="100%" height="100%" fill="url(#codePattern)" />
+    {/* Pintamos un duplicado desplazado justo abajo para crear el bucle sin saltos */}
+    <rect width="100%" height="100%" fill="url(#codePattern)" y="225" />
+  </svg>
+</div>
+<div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-r from-transparent via-primario/10 to-transparent blur-2xl opacity-30" />
       {/* Elemento estético de fondo */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primario-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primario/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto max-w-4xl text-center z-10 flex flex-col items-center justify-center">
         
-        <div className="w-full max-w-5xl mx-auto">
+        <div className="w-full max-w-6xl bg-primario dark:bg-diferencias mx-auto">
           <div className="
             grid 
             grid-cols-1
@@ -78,56 +141,57 @@ export default function Hero() {
             font-extrabold tracking-tight
             text-center sm:text-left
           ">
-            
+
             {/* Columna 1 - HOLA SOY + NOMBRE VERTICAL */}
-<div className="flex flex-col items-center sm:items-start select-none relative">              <span className="text-3xl whitespace-nowrap">
+            <div className="flex flex-col items-center sm:items-start select-none relative">
+
+              <span className="text-3xl mt-1 ml-3 whitespace-nowrap text-texto-para-contraste ">
                 HOLA, SOY
               </span>
-              {/* Nombre en vertical a 270° debajo y a la derecha */}
+              {/* Nombre horizontal comun  */}
               <span
-  className="
+                className="
     block sm:hidden
     mt-2
     text-2xl
     font-semibold
-    text-primario
   "
->
-  KEVIN BARNASTHPOL
-</span>
+              >
+                KEVIN BARNASTHPOL
+              </span>
 
-<span
-  className="
+              <span
+                className="
     hidden sm:block
-    absolute
+    relative
     left-full
-    top-1/2
-    -translate-y-1/2
-    ml-0
-    mt-5
+    bot-auto
+     ml-[-40]
+    mt-0
 
     rotate-180
     [writing-mode:vertical-rl]
 
     text-4xl
     font-semibold
-    text-primario
+        text-diferencias
+        dark:text-contraste
     whitespace-nowrap
   "
->
-  KEVIN BARNASTHPOL
-</span>
+              >
+                KEVIN <br></br>BARNASTHPOL
+              </span>
             </div>
 
             {/* Columna 2 */}
-            <span 
-              ref={elEscritura} 
+            <span
+              ref={elEscritura}
               className="
                 text-diferencias
                 dark:text-secundario
                 break-words
                 inline
-               min-h-[6.5em] sm:min-h-[5em] md:min-h-[5.5em]
+               min-h-[5em] sm:min-h-[5em] md:min-h-[5em]
                 typed-text
                 uppercase
                 mt-4 sm:mt-0

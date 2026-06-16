@@ -9,7 +9,7 @@ const geistSans = Geist({
 });
 
 export const metadata = {
-  title: "Kevin Barnasthpol | Frontend Developer",
+  title: "Kevin Barnasthpol | Dev",
   description: "Mi CV Online y Portafolio de proyectos.",
 };
 

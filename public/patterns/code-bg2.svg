@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500">
+  <style>
+    text {
+      font-family: monospace;
+      font-size: 12px;
+      fill: currentColor;
+      opacity: 1;
+    }
+  </style>
+
+  <!-- BLOQUE 1: API / BACKEND -->
+  <text x="10" y="30">async function getUsers() {'{'}</text>
+  <text x="10" y="50">  const res = await fetch("/api/users");</text>
+  <text x="10" y="70">  const data = await res.json();</text>
+  <text x="10" y="90">  return data;</text>
+  <text x="10" y="110">{'}'}</text>
+
+  <!-- BLOQUE 2: MAP / DATA -->
+  <text x="10" y="160">users.map(user =&gt; {'{'}</text>
+  <text x="10" y="180">  return {'{'} id: user.id, name: user.name {'}'};</text>
+  <text x="10" y="200">{'}'});</text>
+
+  <!-- BLOQUE 3: LOGICA -->
+  <text x="10" y="250">if (isLoading) {'{'}</text>
+  <text x="10" y="270">  return &lt;Spinner /&gt;;</text>
+  <text x="10" y="290">{'}'}</text>
+
+  <!-- BLOQUE 4: HOOK -->
+  <text x="250" y="40">const [data, setData] = useState([]);</text>
+  <text x="250" y="60">const [loading, setLoading] = useState(true);</text>
+
+  <text x="250" y="100">useEffect(() =&gt; {'{'}</text>
+  <text x="250" y="120">  getUsers().then(res =&gt; {'{'}</text>
+  <text x="250" y="140">    setData(res);</text>
+  <text x="250" y="160">    setLoading(false);</text>
+  <text x="250" y="180">  {'}'});</text>
+  <text x="250" y="200">{'}'}, []);</text>
+
+  <!-- BLOQUE 5: UTILS -->
+  <text x="250" y="250">const debounce = (fn, delay) =&gt; {'{'}</text>
+  <text x="250" y="270">  let timeout;</text>
+  <text x="250" y="290">  return (...args) =&gt; {'{'}</text>
+  <text x="250" y="310">    clearTimeout(timeout);</text>
+  <text x="250" y="330">    timeout = setTimeout(() =&gt; fn(...args), delay);</text>
+  <text x="250" y="350">  {'}'};</text>
+  <text x="250" y="370">{'}'}</text>
+
+  <!-- BLOQUE 6: EXTRA -->
+  <text x="10" y="340">const theme = dark ? "dark" : "light";</text>
+  <text x="10" y="360">document.body.classList.toggle(theme);</text>
+
+</svg>
