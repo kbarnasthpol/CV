@@ -4,10 +4,9 @@ export default function About() {
   return (
     <section 
       id="sobre-mi" 
-      className="py-20 bg-fondo-seccion text-texto-para-fondo transition-colors duration-300"
+      className="py-20 bg-fondo-seccion text-texto-para-fondo transition-colors duration-300 min-h-screen flex items-center"
     >
       <div className="container mx-auto max-w-5xl px-6">
-        {/* TÍTULO DE SECCIÓN */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-6">
           
           {/* CONTENEDOR DE LA ILUSTRACIÓN REACTIVA */}

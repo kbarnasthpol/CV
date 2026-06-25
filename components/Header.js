@@ -6,16 +6,12 @@ export default function Header() {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [temaOscuro, setTemaOscuro] = useState(false);
 
-  // 1. Efecto para inicializar el tema usando la lógica nativa de Tailwind ('dark' class)
-  useEffect(() => {
-    const temaGuardado = localStorage.getItem("theme") || "light";
-    if (temaGuardado === "dark") {
-      setTemaOscuro(true);
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, []);
+useEffect(() => {
+  const esOscuro =
+    document.documentElement.classList.contains("dark");
+
+  setTemaOscuro(esOscuro);
+}, []);
 
   // 2. Función para alternar entre Modo Claro y Oscuro con Tailwind
   const alternarTema = () => {
@@ -79,7 +75,7 @@ export default function Header() {
         {/* Enlaces de navegación responsive */}
         <ul className={`
           fixed md:static top-16 left-0 w-full md:w-auto h-[calc(100vh-64px)] md:h-auto
-          bg-primario/95 md:bg-transparent text-fondo
+          bg-primario md:bg-transparent text-fondo
           flex flex-col md:flex-row items-center justify-center md:justify-start gap-8 md:gap-6
           transition-all duration-300 ease-in-out z-40
           ${menuAbierto ? "translate-x-0 opacity-100" : "translate-x-full md:translate-x-0 opacity-0 md:opacity-100 pointer-events-none md:pointer-events-auto"}
@@ -99,6 +95,24 @@ export default function Header() {
           <li>
             <a href="#contacto" className="nav-link-item text-sm tracking-wider uppercase transition-colors hover:text-contraste" onClick={() => setMenuAbierto(false)}>CONTACTO</a>
           </li>
+          <li className="md:hidden mt-4">
+  <div className="flex items-center gap-3">
+    <label className="relative inline-flex items-center cursor-pointer">
+      <input
+        type="checkbox"
+        className="sr-only peer"
+        checked={temaOscuro}
+        onChange={alternarTema}
+      />
+
+      <div className="w-11 h-6 bg-fondo rounded-full peer after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-contraste after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
+    </label>
+
+    <span className="text-xs tracking-widest text-contraste">
+      {temaOscuro ? "MODO CLARO" : "MODO OSCURO"}
+    </span>
+  </div>
+</li>
 
 
         </ul>

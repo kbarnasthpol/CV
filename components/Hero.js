@@ -62,8 +62,6 @@ export default function Hero() {
       id="inicio"
       className="relative min-h-screen flex flex-col items-center justify-center bg-fondo text-texto-para-fondo transition-colors duration-300 px-6 overflow-hidden"
     >
-        {/* Fondo con símbolos tipo código */}
-{/* Fondo con símbolos tipo código */}
 <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-40 blur-[2px]">
   <svg
     className="absolute w-full h-full animate-code-float text-primario dark:text-secundario"
@@ -124,14 +122,10 @@ export default function Hero() {
     <rect width="100%" height="100%" fill="url(#codePattern)" y="225" />
   </svg>
 </div>
-<div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-r from-transparent via-primario/10 to-transparent blur-2xl opacity-30" />
-      {/* Elemento estético de fondo */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primario/10 rounded-full blur-3xl pointer-events-none" />
-
       <div className="container mx-auto max-w-4xl text-center z-10 flex flex-col items-center justify-center">
         
         <div className="w-full max-w-6xl bg-primario/70 dark:bg-diferencias/70 mx-auto">
-          <div className="
+          <div className=" 
             grid 
             grid-cols-1
             sm:gap-x-10
@@ -191,7 +185,7 @@ export default function Hero() {
                 dark:text-secundario
                 break-words
                 inline
-               min-h-[5em] sm:min-h-[5em] md:min-h-[5em]
+               min-h-[6em] sm:min-h-[5em] md:min-h-[5em]
                 typed-text
                 uppercase
                 mt-4 sm:mt-0
@@ -203,7 +197,7 @@ export default function Hero() {
       </div>
 
       {/* INDICADOR DE SCROLL ANIMADO */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none animate-bounce">
+      <div className="absolute hidden sm:block bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none animate-bounce">
         <div className="w-6 h-10 border-2 border-contraste rounded-full flex justify-center p-1">
           <div className="w-1.5 h-2 bg-secundario rounded-full animate-bounce" />
         </div>

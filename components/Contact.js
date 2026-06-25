@@ -27,28 +27,34 @@ export default function Contact() {
       url: 'https://github.com/tu-usuario', // 👈 Acordate de cambiar por tu usuario real
       color: 'hover:text-gray-400 hover:border-gray-400/30 hover:shadow-gray-400/5' 
     },
+    { 
+      name: 'Mi CV', 
+      icon: 'fas fa-book', 
+      url: '/cv-kevin.pdf',
+      color: 'hover:text-red-400 hover:border-red-400/30 hover:shadow-red-400/5' 
+    },
   ];
 
   return (
     <section 
       id="contacto" 
-      className="w-full flex flex-col justify-between px-6 min-h-screen pt-16 md:pt-12 relative text-secundario"
+      className="w-full flex flex-col justify-between px-6 min-h-screen pt-16 md:pt-12 relative text-secundario items-center"
     >
       {/* Detalle decorativo de fondo */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(0,150,255,0.03),transparent_40%)] pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none" />
 
       <div className="container mx-auto max-w-4xl my-auto relative z-10 w-full py-8 md:py-0">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-4xl font-bold mb-3 text-principal">
+          <h2 className="text-2xl md:text-4xl font-bold mb-3 text-principal p-3">
             ¿Tenés un proyecto en mente?
           </h2>
           <p className="max-w-xl mx-auto text-xs md:text-sm leading-relaxed text-texto-para-fondo">
-            Estoy listo para ayudarte a llevar tus ideas al siguiente nivel. ¡Hablemos por el canal que prefieras!
+           ¡Hablemos por el canal que prefieras!
           </p>
         </div>
 
         {/* 🚀 AQUÍ SE MAREAN Y RENDERIZAN LAS REDES SOCIALES */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-5 max-w-3xl mx-auto mb-12">
           {socialLinks.map((link, index) => (
             <a
               key={index}
@@ -63,17 +69,6 @@ export default function Contact() {
               <span className="text-sm font-medium text-principal">{link.name}</span>
             </a>
           ))}
-        </div>
-         {/* ACCIONES / DESCARGAR CV */}
-        <div className="mt-14 flex justify-center">
-          <a 
-            href="/cv-kevin.pdf" 
-            download="CV_Kevin_Barnasthpol.pdf" 
-            className="px-8 h-12 flex items-center justify-center gap-2 text-sm font-semibold tracking-wider bg-contraste hover:bg-diferencias text-texto-para-contraste hover:text-texto-para-contraste dark:hover:text-texto-para-fondo rounded-lg shadow-md transition-all duration-300"
-          >
-            <i className="fas fa-book"></i>
-            DESCARGAR MI CV
-          </a>
         </div>
       </div>
       

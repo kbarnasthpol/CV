@@ -5,6 +5,7 @@ import About from '../components/About';
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
+import MobileDivider from "@/components/MobileDivider";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
@@ -44,12 +45,15 @@ export default function Home() {
         <div className="snap-section">
         <About/>
         </div>
+        <MobileDivider title="SKILLS" />
         <div className="snap-section">
         <Skills/>
         </div>
+        <MobileDivider title="PROJECTS" />
         <div className="snap-section">
         <Projects/>
         </div>
+        <MobileDivider title="CONTACT" />
         <div className="snap-section">
         <Contact/>
         </div>

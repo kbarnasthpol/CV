@@ -61,7 +61,7 @@ export default function Skills() {
   const finalRow2Offset = row2Offset > 0 ? row2Offset - singleSetWidth : row2Offset;
 
   return (
-    <section id="habilidades" className="py-16 overflow-hidden min-h-screen flex items-center relative ">
+    <section id="habilidades" className="py-16 overflow-hidden min-h-screen flex items-center relative">
       <div className="w-full mx-auto">
       {/* ─── CAPA DE FONDO: EFECTO DE PROFUNDIDAD 3D DE PALABRAS REPETIDAS ─── */}
 <div className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden font-black tracking-widest uppercase text-neutral-500">

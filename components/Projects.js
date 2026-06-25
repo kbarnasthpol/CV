@@ -63,12 +63,12 @@ export default function Projects() {
 
 </div>
 
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
   {/* 1. Mapeamos tus proyectos reales */}
   {projectsData.map((project, index) => (
     <div
       key={index}
-      className="group bg-primario border-2 sm:h-100 border-contraste shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col items-center rounded-xl transform hover:-translate-y-1"
+      className="group bg-primario opacity-95 hover:opacity-100 border-2 sm:h-100 border-contraste shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col items-center rounded-xl transform hover:-translate-y-1"
     >
       {/* Contenedor de la imagen */}
       <div className="relative w-full h-40 bg-black overflow-hidden rounded-t-xl">
@@ -83,48 +83,56 @@ export default function Projects() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-100 group-hover:opacity-0 transition-opacity duration-500 pointer-events-none" />
       </div>
 
-      {/* Contenido de la tarjeta */}
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold uppercase text-contraste text-center mb-5 relative inline-block left-1/2 -translate-x-1/2 after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-1 after:bg-diferencias">
-          {project.title}
-        </h3>
-        <p className="text-contraste mb-4 flex-grow text-sm leading-relaxed">
-          {project.description}
-        </p>
+      <div className="flex flex-col flex-grow">
+  
+  {/* Contenido con padding */}
+  <div className="p-6 flex flex-col flex-grow">
+    <h3 className="text-xl font-bold uppercase text-contraste text-center mb-5 relative inline-block left-1/2 -translate-x-1/2 after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-1 after:bg-diferencias">
+      {project.title}
+    </h3>
 
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.tags.map((tag, tagIndex) => (
-            <span
-              key={tagIndex}
-              className="bg-contraste text-texto-para-contraste text-xs font-semibold px-3 py-1 rounded-full"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+    <p className="text-contraste mb-4 flex-grow text-sm leading-relaxed">
+      {project.description}
+    </p>
 
-        <div className="flex gap-10 items-center justify-center">
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            w-auto
-            className="bg-contraste hover:bg-dejarWEB border-2 border-fondo dark:border-contraste dark:text-contraste dark:bg-fondo text-fondo px-4 py-2 rounded-lg transition-colors inline-flex items-center gap-2 text-sm font-medium"
-          >
-            Ver Sitio <i className="fas fa-external-link-alt text-xs"></i>
-          </a>
-          {project.github !== "#" && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-contraste hover:bg-dejarWEB border-2 border-fondo dark:border-contraste dark:text-contraste dark:bg-fondo text-fondo px-4 py-2 rounded-lg transition-colors inline-flex items-center gap-2 text-sm font-medium"
-            >
-              <i className="fab fa-github"></i> Código
-            </a>
-          )}
-        </div>
-      </div>
+    <div className="flex flex-wrap gap-2">
+      {project.tags.map((tag, tagIndex) => (
+        <span
+          key={tagIndex}
+          className="bg-contraste text-texto-para-contraste text-xs font-semibold px-3 py-1 rounded-full"
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
+  </div>
+
+  {/* Botones pegados abajo */}
+  <div className="flex mt-auto bg-contraste">
+  <a
+    href={project.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex-1 h-12 hover:bg-dejarWEB border-t border-fondo dark:border-contraste dark:text-contraste dark:bg-fondo text-fondo flex items-center justify-center gap-2 text-sm font-medium transition-colors"
+  >
+    Ver Sitio
+    <i className="fas fa-external-link-alt text-xs"></i>
+  </a>
+
+  {project.github !== "#" && (
+    <a
+      href={project.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex-1 h-12 bg-contraste hover:bg-dejarWEB border-l border-t border-fondo dark:border-contraste dark:text-contraste dark:bg-fondo text-fondo flex items-center justify-center gap-2 text-sm font-medium transition-colors"
+    >
+      <i className="fab fa-github"></i>
+      Código
+    </a>
+  )}
+</div>
+
+</div>
     </div>
   ))}
 
@@ -159,7 +167,7 @@ export default function Projects() {
         ¿Tu próximo proyecto?
       </h3>
       
-      <p className="text-contraste/80 max-w-xs text-sm leading-relaxed mb-6">
+      <p className="text-contraste/80 hover:text-contraste max-w-xs font-semibold text-sm leading-relaxed mb-6">
         Estoy listo para ayudarte a materializar tus ideas con arquitecturas modernas, optimización SEO y un rendimiento excepcional.
       </p>
 
