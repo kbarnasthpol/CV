@@ -130,7 +130,7 @@ export default function Hero() {
 
       <div className="container mx-auto max-w-4xl text-center z-10 flex flex-col items-center justify-center">
         
-        <div className="w-full max-w-6xl bg-primario dark:bg-diferencias mx-auto">
+        <div className="w-full max-w-6xl bg-primario/70 dark:bg-diferencias/70 mx-auto">
           <div className="
             grid 
             grid-cols-1

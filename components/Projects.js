@@ -4,13 +4,66 @@ import projectsData from "../data/projectsData"; // 🚀 Importamos los datos mo
 
 export default function Projects() {
   return (
-    <section id="proyectos" className="py-16 px-4">
+    <section id="proyectos" className="py-16 px-4 relative min-h-screen flex items-center">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-texto-para-fondo uppercase text-3xl md:text-4xl font-black tracking-tight text-center mb-12 relative inline-block left-1/2 -translate-x-1/2 after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-1 after:bg-diferencias">
-          Mis Proyectos
-        </h2>
+      {/* ─── CAPA DE FONDO: EFECTO DE PROFUNDIDAD 3D DE PALABRAS REPETIDAS ─── */}
+<div className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden font-black tracking-widest uppercase text-neutral-500">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {/* ================= CAPA LEJANA ================= */}
+
+<span className="absolute text-7xl md:text-9xl top-[10%] left-[18%] rotate-[12deg] opacity-20 blur-[3px]">
+  PROJECTS
+</span>
+
+<span className="absolute text-6xl md:text-8xl top-[55%] right-[15%] rotate-[-18deg] opacity-20 blur-[2px]">
+  PROJECTS
+</span>
+
+<span className="absolute text-8xl md:text-[10rem] bottom-[8%] left-[5%] rotate-[5deg] opacity-20 blur-[4px]">
+  PROJECTS
+</span>
+
+{/* ================= CAPA MEDIA ================= */}
+
+<span className="absolute text-5xl md:text-7xl top-[25%] right-[28%] rotate-[22deg] opacity-50">
+  PROJECTS
+</span>
+<span className="absolute text-8xl md:text-8xl top-[20%] right-[2%] rotate-[22deg] opacity-50">
+  PROJECTS
+</span>
+
+<span className="absolute text-6xl md:text-8xl top-[45%] left-[22%] rotate-[-10deg] opacity-50">
+  PROJECTS
+</span>
+
+<span className="absolute text-5xl md:text-7xl bottom-[28%] right-[8%] rotate-[15deg] opacity-50">
+  PROJECTS
+</span>
+
+<span className="absolute text-4xl md:text-6xl bottom-[45%] left-[40%] rotate-[-20deg] opacity-50">
+  PROJECTS
+</span>
+
+{/* ================= CAPA CERCANA ================= */}
+
+<span className="absolute text-8xl md:text-[13rem] top-[-5%] left-[-3%] rotate-[-8deg] opacity-80">
+  PROJECTS
+</span>
+
+<span className="absolute text-9xl md:text-[15rem] top-[35%] right-[-8%] rotate-[10deg] opacity-80">
+  PROJECTS
+</span>
+
+<span className="absolute text-[10rem] md:text-[18rem] bottom-[-10%] left-[20%] rotate-[-2deg] opacity-80">
+  PROJECTS
+</span>
+<span className="absolute text-[10rem] md:text-[6rem] bottom-[35%] right-[78%] rotate-[-90deg] opacity-100 text-secundario/90">
+  PROJECTS
+</span>
+
+</div>
+
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   {/* 1. Mapeamos tus proyectos reales */}
   {projectsData.map((project, index) => (
     <div
@@ -18,7 +71,7 @@ export default function Projects() {
       className="group bg-primario border-2 border-contraste shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col rounded-xl transform hover:-translate-y-1"
     >
       {/* Contenedor de la imagen */}
-      <div className="relative w-full h-48 bg-black overflow-hidden rounded-t-xl">
+      <div className="relative w-full h-40 bg-black overflow-hidden rounded-t-xl">
         <Image
           src={project.image}
           alt={`Captura de pantalla de ${project.title}`}
@@ -89,10 +142,10 @@ export default function Projects() {
 
   return (
     <div className={`
-      group border-2 border-dashed border-contraste/50 bg-primario/30 
-      hover:bg-primario/60 hover:border-contraste shadow-sm hover:shadow-md 
+      group border-2 border-dashed border-contraste/50 bg-primario/60 
+      hover:bg-primario/80 hover:border-contraste shadow-sm hover:shadow-md 
       transition-all duration-300 rounded-xl flex flex-col justify-center 
-      items-center p-8 text-center min-h-[400px]
+      items-center p-8 text-center min-h-[400px] z-10
       ${sobraEnLg ? 'lg:flex' : 'lg:hidden'} 
       ${sobraEnMd ? 'md:flex' : 'md:hidden'}
       hidden 
