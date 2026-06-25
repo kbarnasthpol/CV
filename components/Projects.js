@@ -57,7 +57,7 @@ export default function Projects() {
 <span className="absolute text-[10rem] md:text-[18rem] bottom-[-10%] left-[20%] rotate-[-2deg] opacity-80">
   PROJECTS
 </span>
-<span className="absolute text-[10rem] md:text-[6rem] bottom-[35%] right-[78%] rotate-[-90deg] opacity-100 text-secundario/90">
+<span className="absolute text-[10rem] md:text-[6rem] bottom-[35%] right-[78%] rotate-[-90deg] md:bottom-[-5%] md:right-[0%] md:rotate-[-1deg] opacity-100 text-secundario/90">
   PROJECTS
 </span>
 
@@ -68,7 +68,7 @@ export default function Projects() {
   {projectsData.map((project, index) => (
     <div
       key={index}
-      className="group bg-primario border-2 border-contraste shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col rounded-xl transform hover:-translate-y-1"
+      className="group bg-primario border-2 sm:h-100 border-contraste shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col items-center rounded-xl transform hover:-translate-y-1"
     >
       {/* Contenedor de la imagen */}
       <div className="relative w-full h-40 bg-black overflow-hidden rounded-t-xl">
