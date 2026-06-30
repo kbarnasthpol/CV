@@ -57,7 +57,7 @@ export default function Projects() {
 <span className="absolute text-[10rem] md:text-[18rem] bottom-[-10%] left-[20%] rotate-[-2deg] opacity-80">
   PROJECTS
 </span>
-<span className="absolute text-[10rem] md:text-[6rem] bottom-[35%] right-[78%] rotate-[-90deg] md:bottom-[-5%] md:right-[0%] md:rotate-[-1deg] opacity-100 text-secundario/90">
+<span className="absolute md:block hidden text-[10rem] md:text-[6rem] bottom-[35%] right-[78%] rotate-[-90deg] md:bottom-[-5%] md:right-[0%] md:rotate-[-1deg] opacity-100 text-secundario/90">
   PROJECTS
 </span>
 

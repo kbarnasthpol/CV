@@ -5,32 +5,32 @@ export default function Contact() {
   const socialLinks = [
     { 
       name: 'WhatsApp', 
-      icon: 'fab fa-whatsapp', 
+      icon: 'fab fa-whatsapp',
       url: 'https://api.whatsapp.com/send?phone=+5492213144339&text=Hola%20Kevin!', 
       color: 'hover:text-green-500 hover:border-green-500/30 hover:shadow-green-500/5' 
     },
     { 
       name: 'Email', 
       icon: 'fas fa-envelope', 
-      url: 'mailto:kevin.barnasthpol@gmail.com', 
+      url: 'mailto:kevin.barnasthpol@gmail.com',
       color: 'hover:text-blue-400 hover:border-blue-400/30 hover:shadow-blue-400/5' 
     },
     { 
       name: 'LinkedIn', 
-      icon: 'fab fa-linkedin', 
-      url: 'https://linkedin.com/in/tu-usuario', // 👈 Acordate de cambiar por tu usuario real
+      icon: 'fab fa-linkedin',
+      url: 'https://linkedin.com/in/kevin-barnasthpol', // 👈 Acordate de cambiar por tu usuario real
       color: 'hover:text-blue-600 hover:border-blue-600/30 hover:shadow-blue-600/5' 
     },
     { 
       name: 'GitHub', 
-      icon: 'fab fa-github', 
-      url: 'https://github.com/tu-usuario', // 👈 Acordate de cambiar por tu usuario real
+      icon: 'fab fa-github',
+      url: 'https://github.com/kbarnasthpol', // 👈 Acordate de cambiar por tu usuario real
       color: 'hover:text-gray-400 hover:border-gray-400/30 hover:shadow-gray-400/5' 
     },
     { 
       name: 'Mi CV', 
-      icon: 'fas fa-book', 
-      url: '/cv-kevin.pdf',
+      icon: 'fas fa-book',
+      url: '/cv/kevin-cv.pdf',
       color: 'hover:text-red-400 hover:border-red-400/30 hover:shadow-red-400/5' 
     },
   ];

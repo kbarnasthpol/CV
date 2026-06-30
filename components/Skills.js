@@ -64,8 +64,8 @@ export default function Skills() {
     <section id="habilidades" className="py-16 overflow-hidden min-h-screen flex items-center relative">
       <div className="w-full mx-auto">
       {/* ─── CAPA DE FONDO: EFECTO DE PROFUNDIDAD 3D DE PALABRAS REPETIDAS ─── */}
-<div className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden font-black tracking-widest uppercase text-neutral-500">
-  
+<div className="absolute inset-0 pointer-events-none select-none overflow-hidden font-black tracking-widest uppercase text-neutral-500">
+  <div className="z-0">
   {/* ================= CAPA LEJANA (Opacidad: 0.20 + Mucho Blur = Fondo Profundo) ================= */}
   <span className="absolute text-5xl md:text-7xl top-[5%] left-[8%] rotate-[-15deg] opacity-20 blur-[3px]">
     SKILLS
@@ -99,9 +99,6 @@ export default function Skills() {
   <span className="absolute text-7xl md:text-[10rem] top-[-3%] right-[-5%] rotate-[-5deg] opacity-80 blur-[0.5px]">
     SKILLS
   </span>
-  <span className="absolute text-7xl md:text-[10rem] top-[10%] left-[5%] rotate-[-5deg] opacity-100 text-secundario/90">
-    SKILLS
-  </span>
   <span className="absolute text-8xl md:text-[12rem] top-[42%] left-[-8%] rotate-[15deg] opacity-80">
     SKILLS
   </span>
@@ -110,6 +107,10 @@ export default function Skills() {
   </span>
   <span className="absolute text-7xl md:text-[16rem] bottom-[-5%] left-[15%] rotate-[-3deg] opacity-80">
    SKILLS
+  </span>
+  </div>
+  <span className="absolute z-1 text-7xl md:block hidden md:text-[8rem] top-[10%] left-[5%] rotate-[-5deg] opacity-100 text-secundario/90">
+    SKILLS
   </span>
 
 </div>

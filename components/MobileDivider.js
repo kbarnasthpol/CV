@@ -1,6 +1,6 @@
 export default function MobileDivider({ title }) {
   return (
-    <div className="md:hidden h-[12vh] relative overflow-hidden flex items-center justify-center">
+    <div className="md:hidden h-[14vh] relative overflow-hidden flex items-center justify-center">
 
 {/* Fade vertical */}
       <div
@@ -14,27 +14,33 @@ export default function MobileDivider({ title }) {
           via-50%
         "
       />
-      <span
+      <div
   className="
     absolute
-    inset-0
+    left-1/2
+    top-1/2
+    w-[170%]
+    h-[170%]
+    -translate-x-1/2
+    -translate-y-1/2
+    rotate-[5deg]
+    overflow-hidden
     text-[8vw]
     font-black
     uppercase
-    opacity-10
     leading-[0.7]
-    overflow-hidden
-    text-center
-    rotate-[5deg]
+    opacity-10
+    dark:text-white
+    select-none
+    break-words
+    blur-[1px]
   "
 >
   {Array(50).fill(title).join(" ")}
-</span>
-
-      <div className="absolute bottom-20 animate-bounce">
-        <i className="fas fa-chevron-down text-diferencias text-xl"></i>
-      </div>
-
+</div>
+<span className="absolute text-6xl select-none font-black rotate-[-5deg] opacity-100 text-secundario/90">
+    {title}
+  </span>
     </div>
   );
 }
