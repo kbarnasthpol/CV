@@ -189,6 +189,7 @@ export default function Hero() {
                 typed-text
                 uppercase
                 mt-4 sm:mt-0
+                select-none
               "
             ></span>
 

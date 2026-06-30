@@ -16,7 +16,7 @@ const projectsData = [
     link: "https://legalflow-tu-link.vercel.app/", // 👈 Cambia por tu link real
     github: "https://github.com/kbarnasthpol/legalflow", // 👈 Cambia por tu repo real
     image: "/img/CapturaLegalflow.jpg" // 👈 Asegurate de subir la imagen a public/img/
-  }
+  },
 ];
 
 export default projectsData;
