@@ -1,4 +1,5 @@
 "use client";
+import { FiMoon, FiSun } from "react-icons/fi";
 import { useEffect, useState } from "react";
 
 export default function Header() {
@@ -9,7 +10,6 @@ export default function Header() {
 useEffect(() => {
   const esOscuro =
     document.documentElement.classList.contains("dark");
-
   setTemaOscuro(esOscuro);
 }, []);
 const [headerVisible, setHeaderVisible] = useState(false);
@@ -71,7 +71,6 @@ useEffect(() => {
     sections.forEach((section) => observer.observe(section));
     return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
-
 const links = [
   { href: "#inicio", label: "INICIO" },
   { href: "#sobre-mi", label: "SOBRE MI" },
@@ -86,7 +85,7 @@ const links = [
     fixed top-0 left-0 w-full z-50
     bg-primario/90 backdrop-blur-md
     border-b border-diferencias
-    transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)]
+    transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)]
 
     ${
       headerVisible
@@ -100,13 +99,13 @@ const links = [
     container mx-auto max-w-6xl px-6 h-16
     flex items-center justify-between relative
 
-    transition-all duration-700
+    transition-all duration-2000
     ease-[cubic-bezier(.22,1,.36,1)]
 
     ${
       headerVisible
         ? "translate-x-0 rotate-0 opacity-100"
-        : "-opacity-0 -translate-x-20 -rotate-2 blur-sm"
+        : "-opacity-0 -translate-x-24 -rotate-2 blur-sm"
     }
   `}
 >
@@ -117,7 +116,7 @@ const links = [
     text-lg font-bold tracking-wider
     text-secundario dark:text-diferencias
 
-    transition-all duration-700
+    transition-all duration-1000 delay-200
 
     ${
       headerVisible
@@ -130,13 +129,50 @@ const links = [
         </div>
 
         {/* Hamburguesa móvil reactiva */}
-        <button 
-          className="md:hidden text-2xl font-bold text-secundario focus:outline-none z-50 p-2"
-          onClick={() => setMenuAbierto(!menuAbierto)}
-          aria-label="Abrir menú"
-        >
-          {menuAbierto ? "✕" : "☰"}
-        </button>
+        <div className="flex items-center gap-2 md:hidden z-50">
+
+  <button
+  onClick={alternarTema}
+  aria-label="Cambiar tema"
+  className="
+    p-2
+    rounded-full
+    text-secundario
+    hover:bg-diferencias/20
+    transition-all
+    duration-300
+  "
+>
+  <div
+    className={`
+      transition-all
+      duration-500
+      ease-in-out
+      ${
+        temaOscuro
+          ? "rotate-180 scale-110"
+          : "rotate-0 scale-100"
+      }
+    `}
+  >
+    {temaOscuro ? <FiSun size={22} /> : <FiMoon size={22} />}
+  </div>
+</button>
+
+  <button
+    className="
+      text-2xl
+      font-bold
+      text-secundario
+      p-2
+    "
+    onClick={() => setMenuAbierto(!menuAbierto)}
+    aria-label="Abrir menú"
+  >
+    {menuAbierto ? "✕" : "☰"}
+  </button>
+
+</div>
 
         {/* Enlaces de navegación responsive */}
         <ul className={`
@@ -161,7 +197,7 @@ ${
   <li
     key={link.href}
     className={`
-      transition-all duration-500
+      transition-all duration-1500 delay-500
       ${
         headerVisible
           ? "translate-x-0 opacity-100 blur-0"
@@ -171,7 +207,7 @@ ${
     style={{
       transitionDelay: headerVisible
         ? `${100 + index * 70}ms`
-       : `${(links.length - index) * 70}ms`,
+        : `${(links.length - index) * 70}ms`,
     }}
   >
     <a
@@ -190,9 +226,9 @@ ${
         {/* Interruptor de Modo Oscuro estilo Switch Slider */}
         <div
   className={`
-    hidden sm:flex items-center gap-3
+    hidden md:flex items-center gap-3
 
-    transition-all duration-700 delay-200
+    transition-all duration-1700 delay-300
 
     ${
       headerVisible

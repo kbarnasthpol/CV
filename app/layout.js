@@ -1,6 +1,6 @@
 import { Geist } from "next/font/google";
 import "./globals.css";
-import Header from '../components/Header';
+import Header from '@/components/sections/Header';
 import Script from 'next/script'; // 🚀 Importamos el componente de Next para scripts externos
 
 const geistSans = Geist({

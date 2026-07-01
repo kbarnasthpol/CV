@@ -25,7 +25,7 @@ export default function MobileDivider({ title }) {
     -translate-y-1/2
     rotate-[5deg]
     overflow-hidden
-    text-[8vw]
+    text-[9vw]
     font-black
     uppercase
     leading-[0.7]
@@ -33,12 +33,12 @@ export default function MobileDivider({ title }) {
     dark:text-white
     select-none
     break-words
-    blur-[1px]
+    blur-[2px]
   "
 >
   {Array(50).fill(title).join(" ")}
 </div>
-<span className="absolute text-6xl select-none font-black rotate-[-5deg] opacity-100 text-secundario/90">
+<span className="absolute text-[15vw] separation-[0.7] select-none font-black rotate-[-3deg] opacity-90 text-diferencias [-webkit-text-stroke:8px_var(--color-secundario)] dark:text-primario dark:[-webkit-text-stroke:8px_var(--color-secundario)]">
     {title}
   </span>
     </div>

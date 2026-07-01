@@ -1,11 +1,11 @@
 "use client";
 import { useEffect } from "react";
-import Hero from '../components/Hero';
-import About from '../components/About';
-import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
-import Contact from "@/components/Contact";
-import MobileDivider from "@/components/MobileDivider";
+import Hero from '../components/sections/Hero';
+import About from '../components/sections/About';
+import Projects from "../components/sections/ProjectsSection";
+import Skills from "../components/sections/Skills";
+import Contact from "../components/sections/Contact";
+import MobileDivider from "../components/sections/MobileDivider";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 

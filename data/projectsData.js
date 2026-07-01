@@ -10,7 +10,31 @@ const projectsData = [
     image: "/img/CapturaBiasi.jpg"
   },
   {
-    title: "LegalFlow",
+    title: "LegalFlow1",
+    description: "Plataforma de automatización y gestión de flujos de trabajo para profesionales del derecho. Optimiza el seguimiento de causas, la generación de documentos y la interacción con clientes.",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Node.js"],
+    link: "https://legalflow-tu-link.vercel.app/", // 👈 Cambia por tu link real
+    github: "https://github.com/kbarnasthpol/legalflow", // 👈 Cambia por tu repo real
+    image: "/img/CapturaLegalflow.jpg" // 👈 Asegurate de subir la imagen a public/img/
+  },
+  {
+    title: "LegalFlow2",
+    description: "Plataforma de automatización y gestión de flujos de trabajo para profesionales del derecho. Optimiza el seguimiento de causas, la generación de documentos y la interacción con clientes.",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Node.js"],
+    link: "https://legalflow-tu-link.vercel.app/", // 👈 Cambia por tu link real
+    github: "https://github.com/kbarnasthpol/legalflow", // 👈 Cambia por tu repo real
+    image: "/img/CapturaLegalflow.jpg" // 👈 Asegurate de subir la imagen a public/img/
+  },
+  {
+    title: "LegalFlow3",
+    description: "Plataforma de automatización y gestión de flujos de trabajo para profesionales del derecho. Optimiza el seguimiento de causas, la generación de documentos y la interacción con clientes.",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Node.js"],
+    link: "https://legalflow-tu-link.vercel.app/", // 👈 Cambia por tu link real
+    github: "https://github.com/kbarnasthpol/legalflow", // 👈 Cambia por tu repo real
+    image: "/img/CapturaLegalflow.jpg" // 👈 Asegurate de subir la imagen a public/img/
+  },
+  {
+    title: "LegalFlow4",
     description: "Plataforma de automatización y gestión de flujos de trabajo para profesionales del derecho. Optimiza el seguimiento de causas, la generación de documentos y la interacción con clientes.",
     tags: ["Next.js", "Tailwind CSS", "TypeScript", "Node.js"],
     link: "https://legalflow-tu-link.vercel.app/", // 👈 Cambia por tu link real

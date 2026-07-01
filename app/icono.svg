@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256 ">
+  <rect width="256" height="256" fill="transparent" />
+  <circle cx="128" cy="128" r="128" fill="black" />
+  <!-- K con contorno blanco (separación) -->
+  <text x="118" y="148" dominant-baseline="middle" text-anchor="middle"
+        font-family="'Montserrat', 'Exo 2', 'Outfit', sans-serif"
+        font-weight="900" font-size="210" fill="black"
+        stroke="#9fe870" stroke-width="18"
+        letter-spacing="-3">K</text>
+</svg>
