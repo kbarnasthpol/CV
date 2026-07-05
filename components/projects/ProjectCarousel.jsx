@@ -69,7 +69,7 @@ justify-center " onClick={() => scroll(+1)}>
             </button>
 
             <div className="overflow-hidden w-full relative">
-                <div ref={carouselRef} className="flex gap-8 overflow-x-auto overflow-y-hidden snap-x
+                <div ref={carouselRef} className="flex gap-8 overflow-x-hidden overflow-y-hidden snap-x
         snap-mandatory scroll-smooth scrollbar-hide">
                     {children}
                 </div>

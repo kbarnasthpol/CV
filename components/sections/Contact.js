@@ -1,43 +1,43 @@
 'use client';
-import Footer from './Footer'; 
+import Footer from './Footer';
 
 export default function Contact() {
   const socialLinks = [
-    { 
-      name: 'WhatsApp', 
+    {
+      name: 'WhatsApp',
       icon: 'fab fa-whatsapp',
-      url: 'https://api.whatsapp.com/send?phone=+5492213144339&text=Hola%20Kevin!', 
-      color: 'hover:text-green-500 hover:border-green-500/30 hover:shadow-green-500/5' 
+      url: 'https://api.whatsapp.com/send?phone=+5492213144339&text=Hola%20Kevin!',
+      color: 'hover:text-green-500 hover:border-green-500/30 hover:shadow-green-500/5'
     },
-    { 
-      name: 'Email', 
-      icon: 'fas fa-envelope', 
+    {
+      name: 'Email',
+      icon: 'fas fa-envelope',
       url: 'mailto:kevin.barnasthpol@gmail.com',
-      color: 'hover:text-blue-400 hover:border-blue-400/30 hover:shadow-blue-400/5' 
+      color: 'hover:text-blue-400 hover:border-blue-400/30 hover:shadow-blue-400/5'
     },
-    { 
-      name: 'LinkedIn', 
+    {
+      name: 'LinkedIn',
       icon: 'fab fa-linkedin',
       url: 'https://linkedin.com/in/kevin-barnasthpol', // 👈 Acordate de cambiar por tu usuario real
-      color: 'hover:text-blue-600 hover:border-blue-600/30 hover:shadow-blue-600/5' 
+      color: 'hover:text-blue-600 hover:border-blue-600/30 hover:shadow-blue-600/5'
     },
-    { 
-      name: 'GitHub', 
+    {
+      name: 'GitHub',
       icon: 'fab fa-github',
       url: 'https://github.com/kbarnasthpol', // 👈 Acordate de cambiar por tu usuario real
-      color: 'hover:text-gray-400 hover:border-gray-400/30 hover:shadow-gray-400/5' 
+      color: 'hover:text-gray-400 hover:border-gray-400/30 hover:shadow-gray-400/5'
     },
-    { 
-      name: 'Mi CV', 
+    {
+      name: 'Mi CV',
       icon: 'fas fa-book',
       url: '/cv/kevin-cv.pdf',
-      color: 'hover:text-red-400 hover:border-red-400/30 hover:shadow-red-400/5' 
+      color: 'hover:text-red-400 hover:border-red-400/30 hover:shadow-red-400/5'
     },
   ];
 
   return (
-    <section 
-      id="contacto" 
+    <section
+      id="contacto"
       className="w-full flex flex-col justify-between px-6 min-h-screen pt-16 md:pt-12 relative text-secundario items-center"
     >
       {/* Detalle decorativo de fondo */}
@@ -49,7 +49,7 @@ export default function Contact() {
             ¿Tenés un proyecto en mente?
           </h2>
           <p className="max-w-xl mx-auto text-xs md:text-sm leading-relaxed text-texto-para-fondo">
-           ¡Hablemos por el canal que prefieras!
+            ¡Hablemos por el canal que prefieras!
           </p>
         </div>
 
@@ -71,7 +71,7 @@ export default function Contact() {
           ))}
         </div>
       </div>
-      
+
       <Footer />
     </section>
   );
