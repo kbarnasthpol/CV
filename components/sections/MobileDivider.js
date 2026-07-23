@@ -39,7 +39,7 @@ export default function MobileDivider({ title }) {
     transition-all duration-700
     ${isVisible
             ? "opacity-10"
-            : "opacity-20"}
+            : "opacity-15"}
   `}
       >
         {Array(50).fill(title).join(" ")}
