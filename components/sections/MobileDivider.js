@@ -1,6 +1,9 @@
+import useReveal from "../hooks/useReveal";
 export default function MobileDivider({ title }) {
+  const [revealRef, isVisible] = useReveal();
   return (
-    <div className="md:hidden h-[14vh] relative overflow-hidden flex items-center justify-center">
+    <div ref={revealRef}
+    className="md:hidden h-[14vh] relative overflow-hidden flex items-center justify-center">
 
       {/* Fade vertical */}
       <div
@@ -38,7 +41,12 @@ export default function MobileDivider({ title }) {
       >
         {Array(50).fill(title).join(" ")}
       </div>
-      <span className="absolute text-[15vw] separation-[0.7] select-none font-black rotate-[-3deg] opacity-90 text-diferencias [-webkit-text-stroke:6px_var(--color-secundario)] text-green dark:text-primario dark:[-webkit-text-stroke:6px_var(--color-secundario)]">
+      <span className={`absolute text-[15vw] separation-[0.7] select-none font-black rotate-[-3deg] opacity-90 text-diferencias [-webkit-text-stroke:6px_var(--color-secundario)] text-green dark:text-primario dark:[-webkit-text-stroke:6px_var(--color-secundario)]
+      transition-all duration-300
+      ${isVisible
+            ? "opacity-100 scale-100 translate-x-0"
+            : "opacity-0 scale-98 translate-x-10"}
+`}>
         {title}
       </span>
     </div>

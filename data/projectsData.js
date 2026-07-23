@@ -7,7 +7,7 @@ const projectsData = [
     tags: ["Next.js", "React", "CSS3 Native", "Vercel"],
     link: "https://estudio-biasi.vercel.app/",
     github: "https://github.com/kbarnasthpol/estudio-biasi",
-    image: "/img/CapturaBiasi.jpg"
+    image: "/img/estudio-biasi.png"
   },
   {
     title: "LegalFlow1",

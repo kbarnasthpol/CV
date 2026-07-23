@@ -1,31 +1,23 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
+import useReveal from "../hooks/useReveal";
 
 export default function Hero() {
   const elEscritura = useRef(null);
-  const heroRef = useRef(null); // Corregido: Declaramos la referencia para el Observer
+  const [revealRef, isVisible] = useReveal();
+  useEffect(() => { 
+    const typed = new Typed(elEscritura.current, { 
+      strings: ["Desarrollador Frontend.<br><span class='text-secundario text-3xl sm:text-4xl md:text-5xl dark:text-texto-para-contraste font-semibold'>Creando soluciones web limpias.</span>", "Estudiante Tecnológico.<br><span class='text-secundario text-3xl sm:text-4xl md:text-5xl dark:text-texto-para-contraste font-semibold'>Apasionado por interfaces modernas.</span>", "Entusiasta del Código.<br><span class='text-secundario text-3xl sm:text-4xl md:text-5xl dark:text-texto-para-contraste font-semibold'>Escribiendo código escalable y eficiente.</span>"],
 
-  useEffect(() => {
-    const typed = new Typed(elEscritura.current, {
-      strings: [
-        "Desarrollador Frontend.<br><span class='text-secundario text-3xl sm:text-4xl md:text-5xl dark:text-texto-para-contraste font-semibold'>Creando soluciones web limpias.</span>",
-        "Estudiante Tecnológico.<br><span class='text-secundario text-3xl sm:text-4xl md:text-5xl dark:text-texto-para-contraste font-semibold'>Apasionado por interfaces modernas.</span>",
-        "Entusiasta del Código.<br><span class='text-secundario text-3xl sm:text-4xl md:text-5xl  dark:text-texto-para-contraste font-semibold'>Escribiendo código escalable y eficiente.</span>"
-      ],
-      typeSpeed: 70,
-      backSpeed: 20,
-      backDelay: 1400,
-      loop: true,
-      contentType: 'html',
-      cursorChar: '|',
-      showCursor: false,
-    });
-
-    return () => {
-      typed.destroy();
-    };
-  }, []);
+       typeSpeed: 70, 
+       backSpeed: 20,
+        backDelay: 1400,
+         loop: true,
+          contentType: 'html',
+           cursorChar: '|',
+            showCursor: false,
+           }); return () => { typed.destroy(); }; }, []);
 
   // 2. Intersection Observer para controlar el Header al hacer scroll
   useEffect(() => {
@@ -47,83 +39,98 @@ export default function Hero() {
       { threshold: 0.15 } // Se dispara cuando queda un 15% del Hero en pantalla
     );
 
-    if (heroRef.current) {
-      observer.observe(heroRef.current);
+    if (revealRef.current) {
+      observer.observe(revealRef.current);
     }
 
     return () => {
-      if (heroRef.current) observer.unobserve(heroRef.current);
+      if (revealRef.current) observer.unobserve(revealRef.current);
     };
   }, []);
 
   return (
     <section
-      ref={heroRef} // Corregido: Enlazamos la referencia aquí para que el Observer funcione
+      ref={revealRef}
       id="inicio"
       className="relative min-h-screen flex flex-col items-center justify-center bg-fondo text-texto-para-fondo transition-colors duration-300 px-6 overflow-hidden"
     >
-<div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-40 blur-[2px]">
-  <svg
-    className="absolute w-full h-full animate-code-float text-primario dark:text-secundario"
-    viewBox="0 0 1000 1000"
-    preserveAspectRatio="xMidYMid slice"
-    style={{
-      WebkitMaskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
-      maskImage: "linear-gradient(to bottom, black 70%, transparent 95%)",
-    }}
-  >
-    <defs>
-      <pattern
-        id="codePattern"
-        width="1000"
-        height="225"
-        patternUnits="userSpaceOnUse"
+      <div
+        className={`
+absolute inset-0 z-0 pointer-events-none overflow-hidden blur-[2px]
+transition-all duration-1000 ease-out
+${isVisible
+            ? "opacity-40 scale-100"
+            : "opacity-0 scale-110"}
+`}
+      >  <svg
+        className="absolute w-full h-full animate-code-float text-primario dark:text-secundario"
+        viewBox="0 0 1000 1000"
+        preserveAspectRatio="xMidYMid slice"
+        style={{
+          WebkitMaskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
+          maskImage: "linear-gradient(to bottom, black 70%, transparent 95%)",
+        }}
       >
-        <g
-          fill="currentColor"
-          fontSize="15"
-          fontFamily="monospace"
-          letterSpacing="-1"
-        >
-          <text x="0" y="25" textLength="1000">
-            const app = () =&gt; &#123; return &lt;Hero /&gt; &#125;; function fetchData() &#123; return fetch('/api') &#125;;
-          </text>
-          <text x="0" y="50" textLength="1000">
-            useEffect(() =&gt; &#123; load() &#125;, []); if (loading) return &lt;Spinner /&gt;;
-          </text>
-          <text x="0" y="75" textLength="1000">
-            const debounce = (fn) =&gt; &#123;&#125;; requestAnimationFrame(loop);
-          </text>
-          <text x="0" y="100" textLength="1000">
-            const user = &#123; name: "Kevin", role: "Frontend Dev" &#125;;
-          </text>
-          <text x="0" y="125" textLength="1000">
-            map(data =&gt; data.map(x =&gt; x.id)); async function getUsers() &#123;&#125;;
-          </text>
-          <text x="0" y="150" textLength="1000">
-            function render() &#123; return &lt;Component /&gt; &#125;;
-          </text>
-          <text x="0" y="175" textLength="1000">
-            localStorage.setItem('key', value); Promise.resolve();
-          </text>
-          <text x="0" y="200" textLength="1000">
-            const ctx = createContext(); useContext(ctx);
-          </text>
-          <text x="0" y="225" textLength="1000">
-            let theme = dark ? 'dark' : 'light'; fetch('/api/data');
-          </text>
-        </g>
-      </pattern>
-    </defs>
+          <defs>
+            <pattern
+              id="codePattern"
+              width="1000"
+              height="225"
+              patternUnits="userSpaceOnUse"
+            >
+              <g
+                fill="currentColor"
+                fontSize="15"
+                fontFamily="monospace"
+                letterSpacing="-1"
+              >
+                <text x="0" y="25" textLength="1000">
+                  const app = () =&gt; &#123; return &lt;Hero /&gt; &#125;; function fetchData() &#123; return fetch(/api) &#125;;
+                </text>
+                <text x="0" y="50" textLength="1000">
+                  useEffect(() =&gt; &#123; load() &#125;, []); if (loading) return &lt;Spinner /&gt;;
+                </text>
+                <text x="0" y="75" textLength="1000">
+                  const debounce = (fn) =&gt; &#123;&#125;; requestAnimationFrame(loop);
+                </text>
+                <text x="0" y="100" textLength="1000">
+                  const user = &#123; name: Kevin_B, role: Frontend Dev  &#125;;
+                </text>
+                <text x="0" y="125" textLength="1000">
+                  map(data =&gt; data.map(x =&gt; x.id)); async function getUsers() &#123;&#125;;
+                </text>
+                <text x="0" y="150" textLength="1000">
+                  function render() &#123; return &lt;Component /&gt; &#125;;
+                </text>
+                <text x="0" y="175" textLength="1000">
+                  localStorage.setItem(key, value); Promise.resolve();
+                </text>
+                <text x="0" y="200" textLength="1000">
+                  const ctx = createContext(); useContext(ctx);
+                </text>
+                <text x="0" y="225" textLength="1000">
+                  let theme = dark ? dark : light; fetch(/api/data);
+                </text>
+              </g>
+            </pattern>
+          </defs>
 
-    {/* Pintamos el patrón original */}
-    <rect width="100%" height="100%" fill="url(#codePattern)" />
-    {/* Pintamos un duplicado desplazado justo abajo para crear el bucle sin saltos */}
-    <rect width="100%" height="100%" fill="url(#codePattern)" y="225" />
-  </svg>
-</div>
-      <div className="container mx-auto max-w-4xl text-center z-10 flex flex-col items-center justify-center">
-        
+          {/* Pintamos el patrón original */}
+          <rect width="100%" height="100%" fill="url(#codePattern)" />
+          {/* Pintamos un duplicado desplazado justo abajo para crear el bucle sin saltos */}
+          <rect width="100%" height="100%" fill="url(#codePattern)" y="225" />
+        </svg>
+      </div>
+      <div
+        className={`
+container mx-auto max-w-4xl text-center z-10
+flex flex-col items-center justify-center
+transition-all duration-700 ease-out
+${isVisible
+            ? "opacity-100 translate-y-0 translate-x-0 scale-100"
+            : "opacity-0 translate-y-10 translate-x-50 scale-90"}
+`}
+      >
         <div className="w-full max-w-6xl bg-primario/70 dark:bg-diferencias/70 mx-auto">
           <div className=" 
             grid 
@@ -198,8 +205,17 @@ export default function Hero() {
       </div>
 
       {/* INDICADOR DE SCROLL ANIMADO */}
-      <div className="absolute hidden sm:block bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none animate-bounce">
-        <div className="w-6 h-10 border-2 border-contraste rounded-full flex justify-center p-1">
+      <div
+        className={`
+absolute hidden sm:flex bottom-8 left-1/2
+-translate-x-1/2 flex-col items-center gap-2
+pointer-events-none
+transition-all duration-1000 delay-500
+${isVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-4"}
+`}
+      >        <div className="w-6 h-10 border-2 border-contraste rounded-full flex justify-center p-1 animate-bounce">
           <div className="w-1.5 h-2 bg-secundario rounded-full animate-bounce" />
         </div>
       </div>
