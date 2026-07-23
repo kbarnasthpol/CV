@@ -39,7 +39,7 @@ export default function MobileDivider({ title }) {
     blur-[2px]
     transition-all duration-300
     ${isVisible
-            ? "opacity-10 scale-10"
+            ? "opacity-100 scale-100"
             : "opacity-0 scale-95"}
   `}
       >
