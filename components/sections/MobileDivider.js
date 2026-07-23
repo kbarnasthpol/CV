@@ -32,15 +32,14 @@ export default function MobileDivider({ title }) {
     font-black
     uppercase
     leading-[0.7]
-    opacity-10
     dark:text-white
     select-none
     break-words
     blur-[2px]
-    transition-all duration-300
+    transition-all duration-700
     ${isVisible
-            ? "opacity-100"
-            : "opacity-0"}
+            ? "opacity-10"
+            : "opacity-20"}
   `}
       >
         {Array(50).fill(title).join(" ")}
