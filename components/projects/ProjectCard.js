@@ -2,10 +2,14 @@
 
 import Image from "next/image";
 import { memo } from "react";
+import useReveal from "../hooks/useReveal";
+
 
 function ProjectCard({ project, priority = false }) {
+          const [revealRef, isVisible] = useReveal();
   return (
     <div
+    ref={revealRef}
       className="
   data-project={project.title}
     group
@@ -49,11 +53,25 @@ flex-shrink-0
 
         {/* Contenido con padding */}
         <div className="p-6 flex flex-col flex-grow">
-          <h3 className="text-xl font-bold uppercase text-contraste text-center mb-5 relative inline-block left-1/2 -translate-x-1/2 after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-1 after:bg-diferencias">
+          <h3 className={`text-xl font-bold uppercase text-contraste text-center mb-5 relative inline-block left-1/2 -translate-x-1/2 after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-1 after:bg-diferencias
+          transition-all
+                  duration-1500
+          ${isVisible
+                ? "opacity-100"
+                : "opacity-0 -translate-y-20"
+            }
+            `}>
             {project.title}
           </h3>
 
-          <p className="text-contraste mb-4 flex-grow text-sm leading-relaxed line-clamp-5">
+          <p className={`text-contraste mb-4 flex-grow text-sm leading-relaxed line-clamp-5
+          transition-all
+                  duration-1500
+          ${isVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-10"
+            }`}
+          >
             {project.description}
           </p>
 
@@ -61,7 +79,18 @@ flex-shrink-0
             {project.tags.map((tag, tagIndex) => (
               <span
                 key={tag}
-                className="bg-contraste text-texto-para-contraste text-xs font-semibold px-3 py-1 rounded-full"
+                className={`bg-contraste text-texto-para-contraste text-xs font-semibold px-3 py-1 rounded-full
+                  transition-all
+                  duration-700
+                  ${isVisible
+                ? "opacity-100 translate-y-0 blur-[0px]"
+                : "opacity-0 translate-y-6 blur-[2px]"
+            }
+                  `}
+              
+                style={{
+            transitionDelay: `${tagIndex * 100}ms`,
+          }}
               >
                 {tag}
               </span>
@@ -70,7 +99,14 @@ flex-shrink-0
         </div>
 
         {/* Botones pegados abajo */}
-        <div className="flex mt-auto bg-contraste">
+        <div className={`flex mt-auto bg-contraste
+          transition-all
+                  duration-1500
+          ${isVisible
+                ? "opacity-100 blur-[0px]"
+                : "opacity-0 translate-y-20 blur-[2px]"
+            }
+          `}>
           <a
             href={project.link}
             target="_blank"

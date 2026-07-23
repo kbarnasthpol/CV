@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-
+import useReveal from "../hooks/useReveal";
 const skillsData = [
   { name: "HTML5", icon: "fab fa-html5" },
   { name: "CSS3", icon: "fab fa-css3-alt" },
@@ -10,6 +10,7 @@ const skillsData = [
 ];
 
 export default function Skills() {
+  const [revealRef, isVisible] = useReveal();
   const CARD_WIDTH = 256;
   const GAP = 24;
   const ITEM_WIDTH = CARD_WIDTH + GAP;
@@ -61,11 +62,21 @@ export default function Skills() {
   const finalRow2Offset = row2Offset > 0 ? row2Offset - singleSetWidth : row2Offset;
 
   return (
-    <section id="habilidades" className="py-16 overflow-hidden min-h-screen flex items-center relative">
+    <section id="habilidades"
+    ref={revealRef}
+     className="py-16 overflow-hidden min-h-screen flex items-center relative">
       <div className="w-full mx-auto">
       {/* ─── CAPA DE FONDO: EFECTO DE PROFUNDIDAD 3D DE PALABRAS REPETIDAS ─── */}
 <div className="absolute inset-0 pointer-events-none select-none overflow-hidden font-black tracking-widest uppercase text-neutral-500">
-  <div className="z-0">
+  <div className={`z-0
+  transition
+    duration-2500
+    delay-500
+    ease-out
+    ${isVisible
+? "opacity-100"
+: "opacity-0"}
+    `}>
   {/* ================= CAPA LEJANA (Opacidad: 0.20 + Mucho Blur = Fondo Profundo) ================= */}
   <span className="absolute text-5xl md:text-7xl top-[5%] left-[8%] rotate-[-15deg] opacity-20 blur-[3px]">
     SKILLS
@@ -109,11 +120,26 @@ export default function Skills() {
    SKILLS
   </span>
   </div>
-  <span className="absolute z-1 text-7xl md:block hidden md:text-[8rem] top-[10%] left-[5%] rotate-[-5deg] opacity-100 text-secundario/90">
+  <span className={`absolute z-1 text-7xl md:block hidden md:text-[8rem] top-[10%] left-[5%] text-secundario/90
+    transition-all
+    duration-1500
+    delay-100
+    ease-out
+    ${isVisible
+? "scale-100 rotate-[-5deg] opacity-100 translate-x-0"
+: "scale-95 rotate-[3deg] opacity-0 translate-x-100"}
+    `}>
     SKILLS
   </span>
 
 </div>
+      <div className={`transition-all
+    duration-1500
+    delay-200
+    ease-out
+    ${isVisible
+? "opacity-100 translate-y-0"
+: "opacity-0  translate-y-1/2"}`}>
         {/* FILA 1 */}
         <div className={`${isMobile ? 'mb-12' : ''} w-full overflow-hidden`}>
           <div
@@ -160,6 +186,7 @@ export default function Skills() {
           </div>
         )}
 
+      </div>
       </div>
     </section>
   );

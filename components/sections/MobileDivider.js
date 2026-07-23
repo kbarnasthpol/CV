@@ -18,7 +18,7 @@ export default function MobileDivider({ title }) {
         "
       />
       <div
-        className="
+        className={`
     absolute
     left-1/2
     top-1/2
@@ -37,12 +37,16 @@ export default function MobileDivider({ title }) {
     select-none
     break-words
     blur-[2px]
-  "
+    transition-all duration-300
+    ${isVisible
+            ? "opacity-10 scale-10"
+            : "opacity-0 scale-95"}
+  `}
       >
         {Array(50).fill(title).join(" ")}
       </div>
       <span className={`absolute text-[15vw] separation-[0.7] select-none font-black rotate-[-3deg] opacity-90 text-diferencias [-webkit-text-stroke:6px_var(--color-secundario)] text-green dark:text-primario dark:[-webkit-text-stroke:6px_var(--color-secundario)]
-      transition-all duration-300
+      transition-all delay-100 duration-700
       ${isVisible
             ? "opacity-100 scale-100 translate-x-0"
             : "opacity-0 scale-98 translate-x-10"}

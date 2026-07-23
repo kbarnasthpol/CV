@@ -1,8 +1,18 @@
+import useReveal from "../hooks/useReveal";
+
 export default function FondoProjects(){
+        const [revealRef, isVisible] = useReveal();
  return(
-        <div className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden font-black tracking-widest uppercase text-neutral-500">
+        <div ref={revealRef} className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden font-black tracking-widest uppercase text-neutral-500">
         {/* ================= CAPA LEJANA ================= */}
-        <div>
+        <div className={`
+  transition-all
+    duration-2500
+    delay-500    ease-out
+    ${isVisible
+? "opacity-100"
+: "opacity-0"}
+    `}>
         <span className="absolute text-7xl md:text-9xl top-[10%] left-[18%] rotate-[12deg] opacity-20 blur-[3px]">
         PROJECTS
         </span>
@@ -48,10 +58,18 @@ export default function FondoProjects(){
         <span className="absolute text-[10rem] md:text-[18rem] bottom-[-10%] left-[20%] rotate-[-2deg] opacity-80">
         PROJECTS
         </span>
-        <span className="absolute md:block hidden text-[10rem] md:text-[6rem] bottom-[35%] right-[78%] rotate-[-90deg] md:bottom-[-5%] md:right-[0%] md:rotate-[-1deg] opacity-100 text-secundario/90">
+        </div>
+        <span className={`absolute md:block hidden text-[10rem] md:text-[6rem] bottom-[35%] right-[78%] rotate-[-90deg] md:bottom-[-5%] md:right-[0%] md:rotate-[-1deg] opacity-100 text-secundario/90
+                transition-all
+    duration-1500
+    delay-100
+    ease-out
+    ${isVisible
+? "scale-100 opacity-100 translate-x-0"
+: "scale-95 opacity-0 -translate-x-100"}
+               `}>
         PROJECTS
         </span>
-        </div>
         </div>
 );
 }

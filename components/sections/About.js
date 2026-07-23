@@ -20,7 +20,7 @@ export default function About() {
     ease-[cubic-bezier(0.22,1,0.36,1)]
             ${isVisible
 ? "opacity-100 translate-y-0"
-: "opacity-0 translate-y-50"}
+: "opacity-0 translate-y-1/2"}
               `}>
               {/* Imagen para Modo Claro (Se oculta en dark mode) */}
               <Image 
@@ -46,11 +46,12 @@ export default function About() {
           <div className="flex flex-col space-y-4 text-center">
             <h3 className={`text-xl md:text-3xl font-bold text-primario dark:text-secundario items-center 
             transition-all
+            delay-100
     duration-1500
-    ease-[cubic-bezier(0.22,1,0.36,1)]
+    ease-out
               ${isVisible
-            ? "opacity-100 translate-x-0"
-            : "opacity-0 translate-x-50"}
+            ? "opacity-100 scale-100 translate-x-0"
+            : "opacity-0 scale-90 -translate-x-100"}
               `}>
               ¿Quién soy?
             </h3>

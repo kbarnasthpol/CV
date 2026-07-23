@@ -1,7 +1,9 @@
 'use client';
 import Footer from './Footer';
+import useReveal from "../hooks/useReveal";
 
 export default function Contact() {
+  const [revealRef, isVisible] = useReveal();
   const socialLinks = [
     {
       name: 'WhatsApp',
@@ -38,6 +40,7 @@ export default function Contact() {
   return (
     <section
       id="contacto"
+      ref={revealRef}
       className="w-full flex flex-col justify-between px-6 min-h-screen pt-16 md:pt-12 relative text-secundario items-center"
     >
       {/* Detalle decorativo de fondo */}
@@ -45,16 +48,39 @@ export default function Contact() {
 
       <div className="container mx-auto max-w-4xl my-auto relative z-10 w-full py-8 md:py-0">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-4xl font-bold mb-3 text-principal p-3">
+          <h2 className={`text-2xl md:text-4xl font-bold mb-3 text-principal p-3
+             transition-all
+    duration-1000
+    delay-100
+    ease-out
+    ${isVisible
+? "opacity-100 translate-x-0 blur-[0px]"
+: "opacity-0 translate-x-20 blur-[2px]"}
+`}>
             ¿Tenés un proyecto en mente?
           </h2>
-          <p className="max-w-xl mx-auto text-xs md:text-sm leading-relaxed text-texto-para-fondo">
+          <p className={`max-w-xl mx-auto text-xs md:text-sm leading-relaxed text-texto-para-fondo
+             transition-all
+    duration-1000
+    delay-200
+    ease-out
+    ${isVisible
+? "opacity-100 translate-x-0 blur-[0px]"
+: "opacity-0 translate-x-20 blur-[2px]"}
+            `}>
             ¡Hablemos por el canal que prefieras!
           </p>
         </div>
 
         {/* 🚀 AQUÍ SE MAREAN Y RENDERIZAN LAS REDES SOCIALES */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-5 max-w-3xl mx-auto mb-12">
+        <div className={`grid grid-cols-2 md:grid-cols-5 gap-5 max-w-3xl mx-auto mb-12
+           transition-all
+    duration-1200
+    delay-200
+    ease-out
+    ${isVisible
+? "scale-100 opacity-100 translate-y-0 blur-[0px]"
+: "scale-95 opacity-0 translate-y-10 blur-[2px]"}`}>
           {socialLinks.map((link, index) => (
             <a
               key={index}
