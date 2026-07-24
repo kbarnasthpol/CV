@@ -151,7 +151,7 @@ export default function Skills() {
             {repeatedSkills.map((skill, i) => (
               <div
                 key={`row1-${i}`}
-                className="bg-primario dark:bg-diferencias w-64 h-64 flex-shrink-0 flex items-center justify-center rounded-2xl border border-secundario dark:border-contraste"
+                className="bg-primario dark:bg-diferencias w-48 h-48 md:w-64 md:h-64 flex-shrink-0 flex items-center justify-center rounded-2xl border border-secundario dark:border-contraste"
               >
                 <div className="flex flex-col items-center gap-4">
                   <i className={`${skill.icon} text-6xl text-diferencias dark:text-secundario`} />
@@ -174,7 +174,7 @@ export default function Skills() {
               {repeatedSkills.map((skill, i) => (
                 <div
                   key={`row2-${i}`}
-                  className="bg-primario dark:bg-diferencias w-64 h-64 flex-shrink-0 flex items-center justify-center rounded-2xl shadow-2xl border border-secundario dark:border-contraste"
+                  className="bg-primario dark:bg-diferencias w-48 h-48 md:w-64 md:h-64 flex-shrink-0 flex items-center justify-center rounded-2xl border border-secundario dark:border-contraste"
                 >
                   <div className="flex flex-col items-center gap-4">
                     <i className={`${skill.icon} text-6xl text-diferencias dark:text-secundario`} />

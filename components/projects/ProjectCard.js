@@ -1,39 +1,67 @@
 // ProjectCard.jsx
 
 import Image from "next/image";
-import { memo } from "react";
-import useReveal from "../hooks/useReveal";
+import { memo, useState } from "react";
 
+function ProjectCard({
+  project,
+  priority = false,
+  isVisible,
+  index,
+}) {
+  const [hasEntered, setHasEntered] = useState(false);
+  const [prevIsVisible, setPrevIsVisible] = useState(isVisible);
 
-function ProjectCard({ project, priority = false }) {
-          const [revealRef, isVisible] = useReveal();
+  // 🚀 Si la tarjeta vuelve a ser visible tras haber estado oculta,
+  // reiniciamos `hasEntered` en el render (patrón oficial de React sin useEffect)
+  if (isVisible !== prevIsVisible) {
+    setPrevIsVisible(isVisible);
+    if (!isVisible) {
+      setHasEntered(false);
+    }
+  }
+
   return (
     <div
-    ref={revealRef}
-      className="
-  data-project={project.title}
-    group
-    bg-primario
-    opacity-95
-    hover:opacity-100
-    border-2
-    border-contraste
-    shadow-md
-    hover:shadow-2xl
-    transition-all
-    duration-300
-    overflow-hidden
-    flex
-    flex-col
-    rounded-xl
-    transform
-    w-[320px]
-    md:w-[360px] hover:shadow-secundario
-
-    min-h-[480px]
-    snap-center
-flex-shrink-0
-  "
+      data-project={project.title}
+      style={{
+        // Mientras no haya completado la animación de esta entrada, usa el delay en cascada
+        transitionDelay: hasEntered ? '0ms' : `${index * 200}ms`,
+      }}
+      onTransitionEnd={(e) => {
+        // Al terminar de entrar, desactivamos el delay para dar hover instantáneo
+        if (e.target === e.currentTarget && isVisible && !hasEntered) {
+          setHasEntered(true);
+        }
+      }}
+      className={`
+        group
+        bg-primario
+        opacity-95
+        hover:opacity-100
+        border-2
+        border-contraste
+        shadow-md
+        hover:shadow-2xl
+        transition-all
+        duration-700
+        overflow-hidden
+        flex
+        flex-col
+        rounded-xl
+        transform
+        w-[320px]
+        md:w-[360px] 
+        hover:shadow-secundario
+        min-h-[480px]
+        snap-center
+        flex-shrink-0
+        ${
+          isVisible
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 translate-y-10 scale-95"
+        }
+      `}
     >
       {/* Contenedor de la imagen */}
       <div className="relative w-full h-52 bg-black overflow-hidden rounded-t-xl">
@@ -50,24 +78,21 @@ flex-shrink-0
       </div>
 
       <div className="flex flex-col flex-grow">
-
         {/* Contenido con padding */}
         <div className="p-6 flex flex-col flex-grow">
           <h3 className={`text-xl font-bold uppercase text-contraste text-center mb-5 relative inline-block left-1/2 -translate-x-1/2 after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-1 after:bg-diferencias
-          transition-all
-                  duration-1500
-          ${isVisible
+            transition-all duration-700
+            ${isVisible
                 ? "opacity-100"
                 : "opacity-0 -translate-y-20"
             }
-            `}>
+          `}>
             {project.title}
           </h3>
 
           <p className={`text-contraste mb-4 flex-grow text-sm leading-relaxed line-clamp-5
-          transition-all
-                  duration-1500
-          ${isVisible
+            transition-all duration-700
+            ${isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 translate-x-10"
             }`}
@@ -75,22 +100,20 @@ flex-shrink-0
             {project.description}
           </p>
 
-          <div className="flex flex-wrap gap-2 ">
+          <div className="flex flex-wrap gap-2">
             {project.tags.map((tag, tagIndex) => (
               <span
                 key={tag}
-                className={`bg-contraste text-texto-para-contraste text-xs font-semibold px-3 py-1 rounded-full
-                  transition-all
-                  duration-700
-                  ${isVisible
-                ? "opacity-100 translate-y-0 blur-[0px]"
-                : "opacity-0 translate-y-6 blur-[2px]"
-            }
-                  `}
-              
                 style={{
-            transitionDelay: `${tagIndex * 100}ms`,
-          }}
+                  transitionDelay: hasEntered ? '0ms' : `${tagIndex * 100}ms`,
+                }}
+                className={`bg-contraste text-texto-para-contraste text-xs font-semibold px-3 py-1 rounded-full
+                  transition-all duration-500
+                  ${isVisible
+                    ? "opacity-100 translate-y-0 blur-[0px]"
+                    : "opacity-0 translate-y-6 blur-[2px]"
+                  }
+                `}
               >
                 {tag}
               </span>
@@ -100,13 +123,12 @@ flex-shrink-0
 
         {/* Botones pegados abajo */}
         <div className={`flex mt-auto bg-contraste
-          transition-all
-                  duration-1500
+          transition-all duration-700
           ${isVisible
-                ? "opacity-100 blur-[0px]"
-                : "opacity-0 translate-y-20 blur-[2px]"
-            }
-          `}>
+              ? "opacity-100 blur-[0px]"
+              : "opacity-0 translate-y-20 blur-[2px]"
+          }
+        `}>
           <a
             href={project.link}
             target="_blank"
@@ -129,9 +151,9 @@ flex-shrink-0
             </a>
           )}
         </div>
-
       </div>
     </div>
   );
 }
+
 export default memo(ProjectCard);

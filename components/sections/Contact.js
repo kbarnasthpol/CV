@@ -76,12 +76,12 @@ export default function Contact() {
                   Si NO es visible, le asignamos el delay para que entren en cascada.
                   Una vez que es visible, el delay pasa a 0ms para NO afectar la entrada NI la salida del hover.
                 */
-                transitionDelay: isVisible ? '0ms' : `${index * 150}ms`
+                transitionDelay: isVisible ? '0ms' : `${index * 350}ms`
               }}
-              className={`flex flex-col items-center justify-center p-6 rounded-xl border border-white/5 bg-white/[0.02] backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl ${link.color} ease-out ${
+              className={`flex flex-col items-center justify-center p-6 rounded-xl border border-white/5 bg-white/[0.02] backdrop-blur-sm transition-all duration-1500 delay-700 transform hover:-translate-y-1 hover:shadow-xl ${link.color} ease-out ${
                 isVisible
                   ? "scale-100 opacity-100 translate-y-0 blur-[0px]"
-                  : "scale-95 opacity-0 translate-y-6 blur-sm"
+                  : "scale-95 opacity-0 translate-y-10 blur-sm"
               }`}
             >
               {/* Ícono */}

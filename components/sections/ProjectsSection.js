@@ -22,18 +22,12 @@ export default function Projects() {
         key={project.title}
         project={project}
         priority={index === 0}
-        style={{
-            transitionDelay: `${index * 300}ms`
-          }}
-        classname={`transition-all
-                  duration-700
-          ${isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-100"
-            }`}
+        isVisible={isVisible}
+        index={index}
     />
     
-))}<ProjectCardNext />
+))}<ProjectCardNext isVisible={isVisible}
+    index={projectsData.length}/>
 </ProjectCarousel>
 </div>
       </div>
