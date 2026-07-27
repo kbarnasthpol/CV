@@ -26,7 +26,7 @@ export default function ProjectCardNext({ isVisible, index }) {
         transition-all duration-700 transform
         ${
           isVisible
-            ? "opacity-100 translate-y-0 scale-100 blur-[0px]"
+            ? "opacity-90 translate-y-0 scale-100 blur-[0px]"
             : "opacity-0 translate-y-10 scale-90 blur-sm"
         }
       `}

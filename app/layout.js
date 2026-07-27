@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
       crossOrigin="anonymous"
     />
   </head>
-      <body className={`${geistSans.variable} antialiased`}>
+      <body className={`${geistSans.variable} antialiased overflow-x-hidden`}>
         <Header />
         <main>{children}</main>
       </body>
