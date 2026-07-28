@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="snap-container">
+      <main className="snap-container max-w-full overflow-hidden">
         <div className="snap-section">
          <Hero/>
         </div>

@@ -66,7 +66,7 @@ export default function FondoProjects(){
     ease-out
     ${isVisible
 ? "scale-100 opacity-100 translate-x-0"
-: "scale-95 opacity-0 -translate-x-100"}
+: "scale-95 opacity-0 -translate-x-full"}
                `}>
         PROJECTS
         </span>

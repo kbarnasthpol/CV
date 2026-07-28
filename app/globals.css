@@ -256,7 +256,9 @@
 
   .snap-container {
     height: 100vh;
+    width: 100%;
     overflow-y: scroll;
+    
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
   }
@@ -274,6 +276,9 @@
 
 /* Móvil */
 @media (max-width: 767px) {
+  body {
+  overflow-x: hidden;
+}
   .snap-container {
     overflow-y: auto;
   }

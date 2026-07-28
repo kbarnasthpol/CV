@@ -48,7 +48,7 @@ export default function MobileDivider({ title }) {
       transition-all delay-100 duration-700
       ${isVisible
             ? "opacity-100 scale-100 translate-x-0"
-            : "opacity-0 scale-98 translate-x-10"}
+            : "opacity-0 scale-98 translate-x-full"}
 `}>
         {title}
       </span>

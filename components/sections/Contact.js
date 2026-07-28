@@ -50,14 +50,14 @@ export default function Contact() {
           <h2 className={`text-2xl md:text-4xl font-bold mb-3 text-principal p-3 transition-all duration-1000 delay-100 ease-out ${
             isVisible
               ? "opacity-100 translate-x-0 blur-[0px]"
-              : "opacity-0 translate-x-20 blur-[2px]"
+              : "opacity-0 translate-x-12 blur-[2px]"
           }`}>
             ¿Tenés un proyecto en mente?
           </h2>
           <p className={`max-w-xl mx-auto text-xs md:text-sm leading-relaxed text-texto-para-fondo transition-all duration-1000 delay-200 ease-out ${
             isVisible
               ? "opacity-100 translate-x-0 blur-[0px]"
-              : "opacity-0 translate-x-20 blur-[2px]"
+              : "opacity-0 translate-x-12 blur-[2px]"
           }`}>
             ¡Hablemos por el canal que prefieras!
           </p>

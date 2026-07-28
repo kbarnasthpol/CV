@@ -127,8 +127,8 @@ container mx-auto max-w-4xl text-center z-10
 flex flex-col items-center justify-center
 transition-all duration-700 ease-out
 ${isVisible
-            ? "opacity-100 translate-y-0 translate-x-0 scale-100"
-            : "opacity-0 translate-y-10 translate-x-50 scale-90"}
+            ? "opacity-100 translate-y-0  scale-100"
+            : "opacity-0 -translate-y-full  scale-70"}
 `}
       >
         <div className="w-full max-w-6xl bg-primario/70 dark:bg-diferencias/70 mx-auto">

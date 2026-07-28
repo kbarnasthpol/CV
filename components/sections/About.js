@@ -7,7 +7,7 @@ export default function About() {
     <section 
       id="sobre-mi"
       ref={revealRef}
-      className="py-20 bg-fondo-seccion text-texto-para-fondo transition-colors duration-300 min-h-[90vh] flex items-center"
+      className="py-20 bg-fondo-seccion text-texto-para-fondo transition-colors duration-300 min-h-[90vh]  flex items-center"
     >
       <div className="container mx-auto max-w-5xl px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-6">
@@ -51,7 +51,7 @@ export default function About() {
     ease-out
               ${isVisible
             ? "opacity-100 scale-100 translate-x-0"
-            : "opacity-0 scale-90 -translate-x-100"}
+            : "opacity-0 scale-90 -translate-x-full"}
               `}>
               ¿Quién soy?
             </h3>
@@ -59,8 +59,8 @@ export default function About() {
             duration-1500
             delay-100
               ${isVisible
-            ? "opacity-100  translate-x-0 blur-[0px]"
-            : "opacity-0  translate-x-50 blur-[1px]"}
+            ? "opacity-100  translate-y-0 blur-[0px]"
+            : "opacity-0  translate-y-10 blur-[1px]"}
               `}>
               Soy un desarrollador Frontend Junior apasionado por la tecnología y la creación de interfaces web modernas, intuitivas y eficientes. Actualmente combino mis estudios tecnológicos con el aprendizaje constante de herramientas del ecosistema de JavaScript y React.
             </p>
@@ -68,8 +68,8 @@ export default function About() {
             duration-1500
             delay-200
               ${isVisible
-            ? "opacity-100  translate-x-0 blur-[0px]"
-            : "opacity-0  translate-x-50 blur-[1px]"}
+            ? "opacity-100  translate-y-0 blur-[0px]"
+            : "opacity-0  translate-y-10 blur-[1px]"}
               `}>
                               Mi enfoque está puesto en escribir código limpio, modular y escalable, siempre buscando optimizar la experiencia del usuario final. Disfruto enfrentando nuevos desafíos que me permitan expandir mis conocimientos y aportar valor real en proyectos digitales.
             </p>
@@ -77,8 +77,8 @@ export default function About() {
         <div className={`mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto
           duration-1500
               ${isVisible
-            ? " opacity-100 blur-[0px] translate-x-0"
-            : " opacity-0 blur-[8px] translate-x-50"}
+            ? " opacity-100 blur-[0px] translate-y-0"
+            : " opacity-0 blur-[8px] translate-y-10"}
           `}>
           <a 
             href="#proyectos" 
