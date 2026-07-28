@@ -11,7 +11,7 @@ export default function Projects() {
   return (
     <section id="proyectos"
     ref={revealRef}
-     className="py-16 px-4 relative min-h-screen flex items-center">
+     className="py-16 px-8 relative min-h-screen flex items-center">
       <div className="mx-auto w-full">
       <FondoProjects/>
 <div className="relative z-10">

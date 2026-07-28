@@ -51,21 +51,21 @@ export default function ProjectCarousel({ children }) {
         <div className="relative ">
             <button className="absolute left-2 md:left-4 top-9/20 -translate-y-1/2 z-20 w-12
             cursor-pointer
-    h-12 rounded-full backdrop-blur-md bg-transparent border border-diferencias
+    h-12 rounded-full backdrop-blur-md dark:bg-transparent bg-secundario border dark:border-secundario border-diferencias
     shadow-xl hover:scale-110 active:scale-95 transition-all duration-300
     flex
-items-center
+items-center opacity-50 hover:opacity-75
 justify-center" onClick={() => scroll(-1)}>
-                <FiChevronLeft />
+                <FiChevronLeft className="dark:text-secundario  text-diferencias text-2xl"/>
             </button>
             <button className="absolute right-2 md:right-4 top-9/20 -translate-y-1/2 z-20 w-12
             cursor-pointer
-    h-12 rounded-full backdrop-blur-md bg-transparent border border-diferencias 
+    h-12 rounded-full backdrop-blur-md dark:bg-transparent bg-secundario border dark:border-secundario border-diferencias
     shadow-xl hover:scale-110 active:scale-95 transition-all duration-300
     flex
-items-center
+items-center opacity-50 hover:opacity-75
 justify-center " onClick={() => scroll(+1)}>
-                <FiChevronRight />
+                <FiChevronRight className="dark:text-secundario  text-diferencias text-2xl"/>
             </button>
 
             <div className="overflow-hidden w-full relative">
