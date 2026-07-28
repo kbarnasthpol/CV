@@ -48,7 +48,7 @@ function ProjectCard({
         border-contraste
         shadow-md
         hover:shadow-2xl
-        transition-all
+         transition-transform transition-opacity
         duration-700
         overflow-hidden
         flex
@@ -63,8 +63,8 @@ function ProjectCard({
         flex-shrink-0
         ${
           isVisible
-            ? "opacity-100  scale-100 blur-[0px]"
-            : "opacity-0  scale-85 blur-[6px]"
+            ? "opacity-100  scale-100 "
+            : "opacity-0  scale-85 "
         }
       `}
     >
@@ -86,7 +86,7 @@ function ProjectCard({
         {/* Contenido con padding */}
         <div className="p-6 flex flex-col flex-grow">
           <h3 className={`text-xl font-bold uppercase text-contraste text-center mb-5 relative inline-block left-1/2 -translate-x-1/2 after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-1 after:bg-diferencias
-            transition-all duration-700
+            transition-transform transition-opacity duration-700
             ${isVisible2
                 ? "opacity-100"
                 : "opacity-0 -translate-y-20"
@@ -96,7 +96,7 @@ function ProjectCard({
           </h3>
 
           <p className={`text-contraste mb-4 flex-grow text-sm leading-relaxed line-clamp-5
-            transition-all duration-700
+             transition-transform transition-opacity duration-700
             ${isVisible2
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 translate-x-10"
@@ -113,10 +113,10 @@ function ProjectCard({
                   transitionDelay: hasEntered ? '0ms' : `${tagIndex * 100}ms`,
                 }}
                 className={`bg-contraste text-texto-para-contraste text-xs font-semibold px-3 py-1 rounded-full
-                  transition-all duration-500
+                   transition-transform transition-opacity duration-500
                   ${isVisible2
-                    ? "opacity-100 translate-y-0 blur-[0px]"
-                    : "opacity-0 translate-y-6 blur-[2px]"
+                    ? "opacity-100 translate-y-0 "
+                    : "opacity-0 translate-y-6 "
                   }
                 `}
               >
@@ -128,10 +128,10 @@ function ProjectCard({
 
         {/* Botones pegados abajo */}
         <div className={`flex mt-auto bg-contraste
-          transition-all duration-700
+           transition-transform transition-opacity duration-700
           ${isVisible2
-              ? "opacity-100 blur-[0px]"
-              : "opacity-0 translate-y-20 blur-[2px]"
+              ? "opacity-100 "
+              : "opacity-0 translate-y-20 "
           }
         `}>
           <a

@@ -15,7 +15,7 @@ export default function About() {
           {/* CONTENEDOR DE LA ILUSTRACIÓN REACTIVA */}
           <div className="flex justify-center items-center">
             <div className={`relative p-4 bg-fondo dark:bg-contraste rounded-2xl dark:shadow-sm overflow-hidden
-              transition-all
+               transition-transform transition-opacity
     duration-1500
     ease-[cubic-bezier(0.22,1,0.36,1)]
             ${isVisible
@@ -45,7 +45,7 @@ export default function About() {
           {/* TEXTO INFORMATIVO */}
           <div className="flex flex-col space-y-4 text-center">
             <h3 className={`text-xl md:text-3xl font-bold text-primario dark:text-secundario items-center 
-            transition-all
+            transition-transform transition-opacity
             delay-100
     duration-1500
     ease-out
@@ -57,28 +57,28 @@ export default function About() {
             </h3>
             <p className={`text-contraste text-justify leading-relaxed text-sm sm:text-base
             duration-1500
-            delay-100
+            delay-100  transition-transform transition-opacity
               ${isVisible
-            ? "opacity-100  translate-y-0 blur-[0px]"
-            : "opacity-0  translate-y-10 blur-[1px]"}
+            ? "opacity-100  translate-y-0 "
+            : "opacity-0  translate-y-10 "}
               `}>
               Soy un desarrollador Frontend Junior apasionado por la tecnología y la creación de interfaces web modernas, intuitivas y eficientes. Actualmente combino mis estudios tecnológicos con el aprendizaje constante de herramientas del ecosistema de JavaScript y React.
             </p>
 <p className={`text-contraste text-justify leading-relaxed text-sm sm:text-base
             duration-1500
-            delay-200
+            delay-200  transition-transform transition-opacity
               ${isVisible
-            ? "opacity-100  translate-y-0 blur-[0px]"
-            : "opacity-0  translate-y-10 blur-[1px]"}
+            ? "opacity-100  translate-y-0 "
+            : "opacity-0  translate-y-10 "}
               `}>
                               Mi enfoque está puesto en escribir código limpio, modular y escalable, siempre buscando optimizar la experiencia del usuario final. Disfruto enfrentando nuevos desafíos que me permitan expandir mis conocimientos y aportar valor real en proyectos digitales.
             </p>
             {/* BOTONES / CTA */}
         <div className={`mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto
-          duration-1500
+          duration-1500  transition-transform transition-opacity
               ${isVisible
-            ? " opacity-100 blur-[0px] translate-y-0"
-            : " opacity-0 blur-[8px] translate-y-10"}
+            ? " opacity-100 translate-y-0"
+            : " opacity-0  translate-y-10"}
           `}>
           <a 
             href="#proyectos" 

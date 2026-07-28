@@ -6,7 +6,7 @@ export default function FondoProjects(){
         <div ref={revealRef} className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden font-black tracking-widest uppercase text-neutral-500">
         {/* ================= CAPA LEJANA ================= */}
         <div className={`
-  transition-all
+  transition-opacity
     duration-2500
     delay-500    ease-out
     ${isVisible
@@ -60,7 +60,7 @@ export default function FondoProjects(){
         </span>
         </div>
         <span className={`absolute md:block hidden text-[10rem] md:text-[6rem] bottom-[35%] right-[78%] rotate-[-90deg] md:bottom-[-5%] md:right-[0%] md:rotate-[-1deg] opacity-100 text-secundario/90
-                transition-all
+                 transition-transform transition-opacity
     duration-1500
     delay-100
     ease-out

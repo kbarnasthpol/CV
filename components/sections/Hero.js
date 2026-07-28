@@ -57,7 +57,7 @@ export default function Hero() {
       <div
         className={`
 absolute inset-0 z-0 pointer-events-none overflow-hidden blur-[2px]
-transition-all duration-1000 ease-out
+ transition-transform transition-opacity duration-1000 ease-out
 ${isVisible
             ? "opacity-40 scale-100"
             : "opacity-0 scale-110"}
@@ -125,7 +125,7 @@ ${isVisible
         className={`
 container mx-auto max-w-4xl text-center z-10
 flex flex-col items-center justify-center
-transition-all duration-700 ease-out
+ transition-transform transition-opacity duration-700 ease-out
 ${isVisible
             ? "opacity-100 translate-y-0  scale-100"
             : "opacity-0 -translate-y-full  scale-70"}
@@ -210,7 +210,7 @@ ${isVisible
 absolute hidden sm:flex bottom-8 left-1/2
 -translate-x-1/2 flex-col items-center gap-2
 pointer-events-none
-transition-all duration-1000 delay-500
+ transition-transform transition-opacity duration-1000 delay-500
 ${isVisible
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-4"}

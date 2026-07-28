@@ -1,4 +1,4 @@
-"use client";
+
 import { useState, useEffect } from "react";
 import useReveal from "../hooks/useReveal";
 const skillsData = [
@@ -11,24 +11,19 @@ const skillsData = [
 
 export default function Skills() {
   const [revealRef, isVisible] = useReveal();
-  const CARD_WIDTH = 256;
-  const GAP = 24;
-  const ITEM_WIDTH = CARD_WIDTH + GAP;
 
   // 🔹 Duplicamos más veces para asegurar cobertura completa
   const repeatedSkills = [
     ...skillsData,
     ...skillsData,
+        ...skillsData,
     ...skillsData,
+        ...skillsData,
     ...skillsData,
-    ...skillsData,
-    ...skillsData, // 6 veces para estar seguros
   ];
 
-  const singleSetWidth = skillsData.length * ITEM_WIDTH;
   
-  // 🔹 Offset inicial: comenzamos en 0 para que la fila 1 empiece llena
-  const [offset, setOffset] = useState(0);
+
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -37,30 +32,6 @@ export default function Skills() {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setOffset((prev) => {
-        const newOffset = prev - 0.75;
-        // 🔹 Reset cuando llegamos al final de un set completo
-        if (newOffset <= -singleSetWidth) {
-          return 0;
-        }
-        return newOffset;
-      });
-    }, 16);
-
-    return () => clearInterval(interval);
-  }, [singleSetWidth]);
-
-  // 🔹 Para la fila 2: empezamos con medio set de desfase pero positivo
-  // así la fila 2 comienza mostrando los elementos que la fila 1 ya mostró
-  const row2Offset = offset + singleSetWidth / 2;
-  
-  // 🔹 Si el offset de la fila 2 es positivo, lo llevamos a negativo
-  // para que siempre muestre elementos desde el principio
-  const finalRow2Offset = row2Offset > 0 ? row2Offset - singleSetWidth : row2Offset;
-
   return (
     <section id="habilidades"
     ref={revealRef}
@@ -133,7 +104,7 @@ export default function Skills() {
   </span>
 
 </div>
-      <div className={`transition-all
+      <div className={` transition-transform transition-opacity
     duration-1500
     delay-200
     ease-out
@@ -142,12 +113,7 @@ export default function Skills() {
 : "opacity-0  translate-y-1/2"}`}>
         {/* FILA 1 */}
         <div className={`${isMobile ? 'mb-12' : ''} w-full overflow-hidden`}>
-          <div
-            style={{
-              transform: `translateX(${offset}px)`,
-            }}
-            className="flex gap-6 w-max px-4"
-          >
+          <div className="marquee gap-6 px-4">
             {repeatedSkills.map((skill, i) => (
               <div
                 key={`row1-${i}`}
@@ -166,11 +132,12 @@ export default function Skills() {
         {isMobile && (
           <div className="w-full overflow-hidden pointer-events-none">
             <div
-              style={{
-                transform: `translateX(${finalRow2Offset}px)`,
-              }}
-              className="flex gap-6 w-max px-4"
-            >
+  className="marquee gap-6 px-4"
+  style={{
+    animationDirection: "reverse",
+    animationDuration: "36s",
+  }}
+>
               {repeatedSkills.map((skill, i) => (
                 <div
                   key={`row2-${i}`}
